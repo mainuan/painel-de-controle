@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/:">
+        <file>map_desktop.png</file>
+        <file>map_notebook.png</file>
+    </qresource>
+</RCC>
