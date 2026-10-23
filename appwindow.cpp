@@ -70,10 +70,21 @@ void AppWindow::on_tabWidget_currentChanged(int index) {
     }
     ui->sidebar->setMinimumHeight(ui->sidebar->count()*48+4);
 
-    if (ui->sidebar->minimumHeight() > 576) {
-        ui->sidebar->setMinimumHeight(576);
+    if (ui->sidebar->minimumHeight() > 506) {
+        ui->sidebar->setMinimumHeight(506);
     }
 
     ui->sidebar->sortItems();
+}
+
+
+void AppWindow::on_callSystemSettings_clicked() {
+    this->hide();
+
+    QProcess p;
+    p.waitForFinished(-1);
+    p.execute("systemsettings",QStringList());
+
+    this->show();
 }
 

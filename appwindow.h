@@ -24,6 +24,8 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_callSystemSettings_clicked();
+
 private:
     Ui::AppWindow *ui;
     void callKCMs(QString title, QString iconName, QStringList kcms);
