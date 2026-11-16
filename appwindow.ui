@@ -250,7 +250,7 @@ QToolButton:hover {
          </rect>
         </property>
         <property name="text">
-         <string>Date &amp; Time</string>
+         <string>Date &amp;&amp; Time</string>
         </property>
         <property name="icon">
          <iconset theme="preferences-system-time">
@@ -733,7 +733,7 @@ QToolButton:hover {
          </rect>
         </property>
         <property name="text">
-         <string>Date &amp; Time</string>
+         <string>Date &amp;&amp; Time</string>
         </property>
         <property name="icon">
          <iconset theme="preferences-system-time">

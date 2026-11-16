@@ -25,6 +25,25 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
     on_tabWidget_currentChanged(0);
 }
 
+// Button labels carry Qt mnemonics: "&&" is a literal ampersand and a single
+// "&" marks the shortcut letter. List items and window captions show text
+// verbatim, so they need the plain form ("Date && Time" -> "Date & Time").
+static QString withoutMnemonic(const QString &text) {
+    QString plain;
+    plain.reserve(text.size());
+    for (qsizetype i = 0; i < text.size(); ++i) {
+        if (text.at(i) == QLatin1Char('&')) {
+            if (i + 1 < text.size() && text.at(i + 1) == QLatin1Char('&')) {
+                plain += QLatin1Char('&');
+                ++i;
+            }
+            continue;
+        }
+        plain += text.at(i);
+    }
+    return plain;
+}
+
 AppWindow::~AppWindow(){
     delete ui;
 }
@@ -54,7 +73,7 @@ void AppWindow::callKCMs(QString title, QString iconName, QStringList kcms) {
 void AppWindow::hotspotClick() {
     QPushButton *sender = qobject_cast<QPushButton*>(QObject::sender());
 
-    callKCMs(sender->text(),sender->icon().name(),sender->property("kcms").toStringList());
+    callKCMs(withoutMnemonic(sender->text()),sender->icon().name(),sender->property("kcms").toStringList());
 }
 
 void AppWindow::on_sidebar_itemPressed(QListWidgetItem *item) {
@@ -66,7 +85,7 @@ void AppWindow::on_tabWidget_currentChanged(int index) {
 
     ui->sidebar->clear();
     for (QPushButton* button : tab->findChildren<QPushButton*>()) {
-        QListWidgetItem *item = new QListWidgetItem(button->icon(),button->text(),ui->sidebar);
+        QListWidgetItem *item = new QListWidgetItem(button->icon(),withoutMnemonic(button->text()),ui->sidebar);
         item->setSizeHint(QSize(48,48));
         item->setData(KCMS,button->property("kcms").toStringList());
     }
