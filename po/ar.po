@@ -1,0 +1,90 @@
+# Arabic translations for painel-controle package.
+# Copyright (C) 2026 Mainuan
+# This file is distributed under the same license as the painel-controle package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: painel-controle\n"
+"Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
+"POT-Creation-Date: 2026-11-16 11:20-0300\n"
+"PO-Revision-Date: 2026-11-16 11:20-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: ar <https://github.com/mainuan>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: appwindow.ui
+msgid "Advanced Mode"
+msgstr "الوضع المتقدّم"
+
+#: appwindow.ui
+msgid "Bluetooth"
+msgstr "بلوتوث"
+
+#: appwindow.ui
+msgid "Control Panel"
+msgstr "لوحة التحكّم"
+
+# reviewed: '&' is a literal conjunction (Date &amp; Time in .ui), not an
+# accelerator; ال&تاريخ splits the word and sets a bogus mnemonic; follow KDE
+# ar 'التّاريخ والوقت' (without shadda per batch convention)
+#: appwindow.ui
+msgid "Date && Time"
+msgstr "التاريخ والوقت"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Desktop"
+msgstr "مكتبي"
+
+#: appwindow.ui
+msgid "Digital Cameras"
+msgstr "الكاميرات الرقمية"
+
+#: appwindow.ui
+msgid "Display"
+msgstr "العرض"
+
+#: appwindow.ui
+msgid "Keyboard"
+msgstr "لوحة المفاتيح"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Laptop"
+msgstr "محمول"
+
+#: appwindow.ui
+msgid "Microphones and Speakers"
+msgstr "الميكروفونات ومكبّرات الصوت"
+
+#: appwindow.ui
+msgid "Mouse"
+msgstr "الفأرة"
+
+#: appwindow.ui
+msgid "Network, Wi-Fi and Internet"
+msgstr "الشبكة وWi-Fi والإنترنت"
+
+#: appwindow.ui
+msgid "Power"
+msgstr "الطاقة"
+
+#: appwindow.ui
+msgid "Printers"
+msgstr "الطابعات"
+
+#: appwindow.ui
+msgid "Removable Storage"
+msgstr "التخزين القابل للإزالة"
+
+#: appwindow.ui
+msgid "Touchpad"
+msgstr "لوحة اللمس"
+
+#: appwindow.ui
+msgid "Webcam"
+msgstr "كاميرا الوِب"

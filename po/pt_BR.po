@@ -31,8 +31,8 @@ msgid "Control Panel"
 msgstr "Painel de controle"
 
 #: appwindow.ui
-msgid "Date & Time"
-msgstr "Data & Hora"
+msgid "Date && Time"
+msgstr "Data && Hora"
 
 #: appwindow.ui
 msgctxt "@title:tab type of computer"
