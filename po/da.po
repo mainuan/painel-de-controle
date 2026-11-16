@@ -1,0 +1,90 @@
+# Danish translations for painel-controle package.
+# Copyright (C) 2026 Mainuan
+# This file is distributed under the same license as the painel-controle package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: painel-controle\n"
+"Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
+"POT-Creation-Date: 2026-11-16 11:42-0300\n"
+"PO-Revision-Date: 2026-11-16 11:42-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: da <https://github.com/mainuan>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: appwindow.ui
+msgid "Advanced Mode"
+msgstr "Avanceret tilstand"
+
+#: appwindow.ui
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: appwindow.ui
+msgid "Control Panel"
+msgstr "Kontrolpanel"
+
+# reviewed: natural KDE da form; matches 'Date and time' in system report; no
+# && needed
+#: appwindow.ui
+msgid "Date && Time"
+msgstr "Dato og klokkeslæt"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Desktop"
+msgstr "Stationær"
+
+#: appwindow.ui
+msgid "Digital Cameras"
+msgstr "Digitalkameraer"
+
+#: appwindow.ui
+msgid "Display"
+msgstr "Skærm"
+
+#: appwindow.ui
+msgid "Keyboard"
+msgstr "Tastatur"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Laptop"
+msgstr "Bærbar"
+
+#: appwindow.ui
+msgid "Microphones and Speakers"
+msgstr "Mikrofoner og højttalere"
+
+#: appwindow.ui
+msgid "Mouse"
+msgstr "Mus"
+
+#: appwindow.ui
+msgid "Network, Wi-Fi and Internet"
+msgstr "Netværk, wi-fi og internet"
+
+#: appwindow.ui
+msgid "Power"
+msgstr "Strøm"
+
+#: appwindow.ui
+msgid "Printers"
+msgstr "Printere"
+
+#: appwindow.ui
+msgid "Removable Storage"
+msgstr "Flytbare lagermedier"
+
+#: appwindow.ui
+msgid "Touchpad"
+msgstr "Touchpad"
+
+#: appwindow.ui
+msgid "Webcam"
+msgstr "Webcam"
