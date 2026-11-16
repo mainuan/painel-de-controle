@@ -8,6 +8,6 @@ include(../ki18n.pri)
 
 INCLUDEPATH += $$PWD/..
 SOURCES += tst_i18n.cpp ../appwindow.cpp
-HEADERS += ../appwindow.h
+HEADERS += ../appwindow.h ../cataloglayoutdirection.h
 FORMS += ../appwindow.ui
 RESOURCES += ../resource.qrc

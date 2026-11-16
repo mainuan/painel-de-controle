@@ -5,6 +5,7 @@
 // which sets PAINEL_CONTROLE_EXPECTED_LANGUAGE and PAINEL_CONTROLE_LOCALEDIR.
 
 #include "appwindow.h"
+#include "cataloglayoutdirection.h"
 
 #include <KLocalizedString>
 
@@ -23,6 +24,7 @@ class I18nTest final : public QObject
 private slots:
     void windowUsesExpectedLanguage();
     void kcmIdentifiersAreNotTranslated();
+    void rightToLeftCatalogMirrorsLayout();
 };
 
 void I18nTest::windowUsesExpectedLanguage()
@@ -71,6 +73,37 @@ void I18nTest::kcmIdentifiersAreNotTranslated()
     auto *mouse = window.findChild<QPushButton *>(QStringLiteral("pushButton_26"));
     QVERIFY(mouse);
     QCOMPARE(mouse->property("kcms").toStringList(), QStringList{QStringLiteral("kcm_mouse")});
+}
+
+void I18nTest::rightToLeftCatalogMirrorsLayout()
+{
+    auto *application = qApp;
+    // No qtbase_ar translator in this process (LANGUAGE is pt_BR, en or unset):
+    // Qt by itself keeps the layout left to right.
+    QVERIFY(QCoreApplication::translate("QGuiApplication", "QT_LAYOUT_DIRECTION") != QStringLiteral("RTL"));
+    QCOMPARE(QGuiApplication::layoutDirection(), Qt::LeftToRight);
+
+    // The application's own Arabic catalog is used: mirror (same call as main()).
+    KLocalizedString::setLanguages({QStringLiteral("ar"), QStringLiteral("en")});
+    QVERIFY(KLocalizedString::isApplicationTranslatedInto(QStringLiteral("ar")));
+    QCOMPARE(CatalogLayoutDirection::effectiveLanguage(), QStringLiteral("ar"));
+    CatalogLayoutDirection::apply(*application);
+    QCOMPARE(QGuiApplication::layoutDirection(), Qt::RightToLeft);
+    AppWindow window;
+    QVERIFY(window.isRightToLeft());
+
+    // Urdu is written right to left, but there is no painel-controle catalog
+    // for it: the interface falls back to English and stays left to right.
+    application->setLayoutDirection(Qt::LeftToRight);
+    KLocalizedString::setLanguages({QStringLiteral("ur"), QStringLiteral("en")});
+    QCOMPARE(QLocale(QStringLiteral("ur")).textDirection(), Qt::RightToLeft);
+    QVERIFY(!KLocalizedString::isApplicationTranslatedInto(QStringLiteral("ur")));
+    QCOMPARE(CatalogLayoutDirection::effectiveLanguage(), QString());
+    CatalogLayoutDirection::apply(*application);
+    QCOMPARE(QGuiApplication::layoutDirection(), Qt::LeftToRight);
+
+    KLocalizedString::clearLanguages();
+    application->setLayoutDirection(Qt::LayoutDirectionAuto);
 }
 
 int main(int argc, char *argv[])

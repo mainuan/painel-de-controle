@@ -1,4 +1,5 @@
 #include "appwindow.h"
+#include "cataloglayoutdirection.h"
 
 #include <KLocalizedString>
 
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
     }
 
     QApplication a(argc, argv);
+    // Mirror the interface for a right-to-left catalog even without qtbase_<lang>.
+    CatalogLayoutDirection::apply(a);
     AppWindow w;
     w.show();
     return a.exec();

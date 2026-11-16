@@ -16,7 +16,8 @@ SOURCES += \
     appwindow.cpp
 
 HEADERS += \
-    appwindow.h
+    appwindow.h \
+    cataloglayoutdirection.h
 
 FORMS += \
     appwindow.ui
