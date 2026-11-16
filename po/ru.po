@@ -1,0 +1,89 @@
+# Russian translations for painel-controle package.
+# Copyright (C) 2026 Mainuan
+# This file is distributed under the same license as the painel-controle package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: painel-controle\n"
+"Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
+"POT-Creation-Date: 2026-11-16 11:42-0300\n"
+"PO-Revision-Date: 2026-11-16 11:20-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: ru <https://github.com/mainuan>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: appwindow.ui
+msgid "Advanced Mode"
+msgstr "Расширенный режим"
+
+#: appwindow.ui
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: appwindow.ui
+msgid "Control Panel"
+msgstr "Панель управления"
+
+#: appwindow.ui
+msgid "Date && Time"
+msgstr "Дата и время"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Desktop"
+msgstr "Настольный компьютер"
+
+#: appwindow.ui
+msgid "Digital Cameras"
+msgstr "Цифровые камеры"
+
+#: appwindow.ui
+msgid "Display"
+msgstr "Экран"
+
+#: appwindow.ui
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Laptop"
+msgstr "Ноутбук"
+
+#: appwindow.ui
+msgid "Microphones and Speakers"
+msgstr "Микрофоны и динамики"
+
+#: appwindow.ui
+msgid "Mouse"
+msgstr "Мышь"
+
+#: appwindow.ui
+msgid "Network, Wi-Fi and Internet"
+msgstr "Сеть, Wi-Fi и Интернет"
+
+#: appwindow.ui
+msgid "Power"
+msgstr "Питание"
+
+#: appwindow.ui
+msgid "Printers"
+msgstr "Принтеры"
+
+#: appwindow.ui
+msgid "Removable Storage"
+msgstr "Съёмные носители"
+
+#: appwindow.ui
+msgid "Touchpad"
+msgstr "Сенсорная панель"
+
+#: appwindow.ui
+msgid "Webcam"
+msgstr "Веб-камера"

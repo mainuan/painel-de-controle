@@ -1,0 +1,87 @@
+# Hindi translations for painel-controle package.
+# Copyright (C) 2026 Mainuan
+# This file is distributed under the same license as the painel-controle package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: painel-controle\n"
+"Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
+"POT-Creation-Date: 2026-11-16 11:42-0300\n"
+"PO-Revision-Date: 2026-11-16 11:42-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: hi <https://github.com/mainuan>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: appwindow.ui
+msgid "Advanced Mode"
+msgstr "उन्नत मोड"
+
+#: appwindow.ui
+msgid "Bluetooth"
+msgstr "ब्लूटूथ"
+
+#: appwindow.ui
+msgid "Control Panel"
+msgstr "नियंत्रण पैनल"
+
+#: appwindow.ui
+msgid "Date && Time"
+msgstr "दिनांक और समय (&D)"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Desktop"
+msgstr "डेस्कटॉप"
+
+#: appwindow.ui
+msgid "Digital Cameras"
+msgstr "डिजिटल कैमरे"
+
+#: appwindow.ui
+msgid "Display"
+msgstr "डिस्प्ले"
+
+#: appwindow.ui
+msgid "Keyboard"
+msgstr "कीबोर्ड"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Laptop"
+msgstr "लैपटॉप"
+
+#: appwindow.ui
+msgid "Microphones and Speakers"
+msgstr "माइक्रोफ़ोन और स्पीकर"
+
+#: appwindow.ui
+msgid "Mouse"
+msgstr "माउस"
+
+#: appwindow.ui
+msgid "Network, Wi-Fi and Internet"
+msgstr "नेटवर्क, Wi-Fi और इंटरनेट"
+
+#: appwindow.ui
+msgid "Power"
+msgstr "पावर"
+
+#: appwindow.ui
+msgid "Printers"
+msgstr "प्रिंटर"
+
+#: appwindow.ui
+msgid "Removable Storage"
+msgstr "हटाने योग्य स्टोरेज"
+
+#: appwindow.ui
+msgid "Touchpad"
+msgstr "टचपैड"
+
+#: appwindow.ui
+msgid "Webcam"
+msgstr "वेबकैम"
