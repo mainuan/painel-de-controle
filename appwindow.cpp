@@ -1,4 +1,6 @@
 #include "appwindow.h"
+// ui_appwindow.h is generated with "uic -tr tr2i18n": KLocalizedString first.
+#include <KLocalizedString>
 #include "ui_appwindow.h"
 #include <QProcess>
 
