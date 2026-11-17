@@ -16,6 +16,9 @@ A visual control panel for KDE Plasma: click the part of the computer you want t
 
 ---
 
+<p align="center"><img src="docs/screenshots/painel-de-controle.png" width="820" alt="Control Panel on Mainuan"></p>
+
+
 ## About
 
 Painel de Controle ("Control Panel") shows a picture of a desktop computer and a laptop. Clicking a part of the picture (mouse, keyboard, display, speakers, network, printer, camera…) or the matching entry in the side list opens the related Plasma settings modules through `kcmshell6`. The Webcam entry starts `guvcview`. **Advanced Mode** opens the full System Settings.

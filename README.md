@@ -16,6 +16,9 @@ Painel de controle visual para o KDE Plasma: clique na parte do computador que q
 
 ---
 
+<p align="center"><img src="docs/screenshots/painel-de-controle.png" width="820" alt="Painel de Controle no Mainuan"></p>
+
+
 ## O que é
 
 O Painel de Controle mostra a imagem de um computador de mesa e de um notebook. Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
