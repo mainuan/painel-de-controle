@@ -37,8 +37,9 @@ jobs:
         tests/run-i18n-tests.sh "$build/tests" 2>&1 | tee "$build/tests.log"
         test "$(grep -c '^Totals: .*, 0 failed, 0 skipped' "$build/tests.log")" -eq 3
         rm -rf "$build"
-      # Optional modules (Suggests) so that every KCM the panel opens is present.
-      extra-install-packages: kamera kde-config-tablet kgamma kio-audiocd
+      # Optional modules (Suggests) so that every KCM the panel opens is present;
+      # kio-extras (kcm_proxy, kcm_netpref) is a Recommends that APT skipped here.
+      extra-install-packages: kamera kde-config-tablet kgamma kio-audiocd kio-extras
       smoke-command: |
         cd "$HOME"
         test -x /usr/bin/painel-controle
