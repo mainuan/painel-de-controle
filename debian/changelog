@@ -1,3 +1,15 @@
+painel-de-controle (1.1.1) resolute; urgency=medium
+
+  * O pacote passa a ser o dono do atalho do menu
+    (/usr/share/applications/painel-controle.desktop), que também vinha no
+    mainuan-desktop-defaults 2026.11.17: instalados juntos, como na ISO, o
+    dpkg recusava a instalação. Breaks/Replaces fazem a troca de dono.
+  * O atalho incorpora o que só existia na cópia do dot-files: tecla de
+    atalho Meta+I, janela única, notificação de início e exibição só no
+    KDE.
+
+ -- ruscher <rruscher@gmail.com>  Tue, 17 Nov 2026 12:44:03 -0300
+
 painel-de-controle (1.1.0) resolute; urgency=medium
 
   * Interface traduzida com KI18n (gettext) em 33 idiomas, seguindo o idioma
