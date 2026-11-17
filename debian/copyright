@@ -2,13 +2,10 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: painel-de-controle
 Upstream-Contact: Natanael Barbosa Santos <natanaelpix@gmail.com>
 Source: https://github.com/mainuan/painel-de-controle
-Comment: The upstream repository contains no license file and no license
- notices in its source files; the copyright holders have not yet stated the
- terms under which this work is distributed.
 
 Files: *
 Copyright: 2026 Natanael Barbosa Santos <natanaelpix@gmail.com>
-License: no-license-statement
+License: GPL-2
 
 Files: ki18n.pri
        cataloglayoutdirection.h
@@ -18,9 +15,17 @@ Files: ki18n.pri
        po/*
        tests/*
 Copyright: 2026 ruscher <rruscher@gmail.com>
-License: no-license-statement
+License: GPL-2
 
-License: no-license-statement
- No license has been published for this work yet. Until the copyright
- holders add one, this file grants no permission beyond what applicable law
- allows.
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; version 2 of the License.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in "/usr/share/common-licenses/GPL-2".
