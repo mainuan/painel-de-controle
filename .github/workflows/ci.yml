@@ -22,14 +22,20 @@ jobs:
     with:
       package: painel-de-controle
       release-title: Painel de Controle
-      # Catalogs, POT and a warning-free build; the i18n test itself runs in
-      # debian/rules (dh_auto_test) during dpkg-buildpackage.
+      # Catalogs, POT, a build without warnings in the project's own sources
+      # (KF6 headers come in through -I and are ignored) and the i18n test in
+      # pt_BR/en/C, which must not skip. dh_auto_test runs it again.
       test-command: |
         po/i18n.sh check-pot
         po/i18n.sh validate
         src="$PWD"
         build="$(mktemp -d)"
-        (cd "$build" && qmake6 "$src/PainelControle.pro" "QMAKE_CXXFLAGS+=-Wall -Wextra -Werror" && make -j2)
+        (cd "$build" && qmake6 "$src/PainelControle.pro" "QMAKE_CXXFLAGS+=-Wall -Wextra" && make -j2) 2>&1 | tee "$build/build.log"
+        if grep ': warning:' "$build/build.log" | grep -v '^/usr/'; then
+          echo "::error::compiler warnings in the project sources"; exit 1
+        fi
+        tests/run-i18n-tests.sh "$build/tests" 2>&1 | tee "$build/tests.log"
+        test "$(grep -c '^Totals: .*, 0 failed, 0 skipped' "$build/tests.log")" -eq 3
         rm -rf "$build"
       # Optional modules (Suggests) so that every KCM the panel opens is present.
       extra-install-packages: kamera kde-config-tablet kgamma kio-audiocd
