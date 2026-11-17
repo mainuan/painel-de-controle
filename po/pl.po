@@ -1,0 +1,91 @@
+# Polish translations for painel-controle package.
+# Copyright (C) 2026 Mainuan
+# This file is distributed under the same license as the painel-controle package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: painel-controle\n"
+"Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
+"POT-Creation-Date: 2026-11-16 11:42-0300\n"
+"PO-Revision-Date: 2026-11-16 11:42-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: pl <https://github.com/mainuan>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+# reviewed: KDE pl: Advanced = rozszerzony; consistent with Ustawienia
+# rozszerzone
+#: appwindow.ui
+msgid "Advanced Mode"
+msgstr "Tryb rozszerzony"
+
+#: appwindow.ui
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: appwindow.ui
+msgid "Control Panel"
+msgstr "Panel sterowania"
+
+#: appwindow.ui
+msgid "Date && Time"
+msgstr "Data i czas"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Desktop"
+msgstr "Komputer stacjonarny"
+
+#: appwindow.ui
+msgid "Digital Cameras"
+msgstr "Aparaty cyfrowe"
+
+#: appwindow.ui
+msgid "Display"
+msgstr "Wyświetlacz"
+
+#: appwindow.ui
+msgid "Keyboard"
+msgstr "Klawiatura"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Laptop"
+msgstr "Laptop"
+
+#: appwindow.ui
+msgid "Microphones and Speakers"
+msgstr "Mikrofony i głośniki"
+
+#: appwindow.ui
+msgid "Mouse"
+msgstr "Mysz"
+
+#: appwindow.ui
+msgid "Network, Wi-Fi and Internet"
+msgstr "Sieć, Wi-Fi i internet"
+
+#: appwindow.ui
+msgid "Power"
+msgstr "Zasilanie"
+
+#: appwindow.ui
+msgid "Printers"
+msgstr "Drukarki"
+
+#: appwindow.ui
+msgid "Removable Storage"
+msgstr "Nośniki wymienne"
+
+#: appwindow.ui
+msgid "Touchpad"
+msgstr "Gładzik"
+
+#: appwindow.ui
+msgid "Webcam"
+msgstr "Kamera internetowa"

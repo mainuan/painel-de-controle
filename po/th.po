@@ -1,0 +1,88 @@
+# Thai translations for painel-controle package.
+# Copyright (C) 2026 Mainuan
+# This file is distributed under the same license as the painel-controle package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: painel-controle\n"
+"Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
+"POT-Creation-Date: 2026-11-16 11:42-0300\n"
+"PO-Revision-Date: 2026-11-16 11:42-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: th <https://github.com/mainuan>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: appwindow.ui
+msgid "Advanced Mode"
+msgstr "โหมดขั้นสูง"
+
+#: appwindow.ui
+msgid "Bluetooth"
+msgstr "บลูทูธ"
+
+#: appwindow.ui
+msgid "Control Panel"
+msgstr "แผงควบคุม"
+
+#: appwindow.ui
+msgid "Date && Time"
+msgstr "วันที่และเวลา"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Desktop"
+msgstr "เดสก์ท็อป"
+
+#: appwindow.ui
+msgid "Digital Cameras"
+msgstr "กล้องดิจิทัล"
+
+#: appwindow.ui
+msgid "Display"
+msgstr "การแสดงผล"
+
+#: appwindow.ui
+msgid "Keyboard"
+msgstr "แป้นพิมพ์"
+
+#: appwindow.ui
+msgctxt "@title:tab type of computer"
+msgid "Laptop"
+msgstr "แล็ปท็อป"
+
+#: appwindow.ui
+msgid "Microphones and Speakers"
+msgstr "ไมโครโฟนและลำโพง"
+
+#: appwindow.ui
+msgid "Mouse"
+msgstr "เมาส์"
+
+# reviewed: sem vírgula lia-se 'rede Wi-Fi e Internet' (2 itens em vez de 3)
+#: appwindow.ui
+msgid "Network, Wi-Fi and Internet"
+msgstr "เครือข่าย, Wi-Fi และอินเทอร์เน็ต"
+
+#: appwindow.ui
+msgid "Power"
+msgstr "พลังงาน"
+
+#: appwindow.ui
+msgid "Printers"
+msgstr "เครื่องพิมพ์"
+
+#: appwindow.ui
+msgid "Removable Storage"
+msgstr "สื่อเก็บข้อมูลแบบถอดได้"
+
+#: appwindow.ui
+msgid "Touchpad"
+msgstr "ทัชแพด"
+
+#: appwindow.ui
+msgid "Webcam"
+msgstr "เว็บแคม"

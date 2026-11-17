@@ -92,12 +92,12 @@ void I18nTest::rightToLeftCatalogMirrorsLayout()
     AppWindow window;
     QVERIFY(window.isRightToLeft());
 
-    // Urdu is written right to left, but there is no painel-controle catalog
+    // Yiddish is written right to left, but there is no painel-controle catalog
     // for it: the interface falls back to English and stays left to right.
     application->setLayoutDirection(Qt::LeftToRight);
-    KLocalizedString::setLanguages({QStringLiteral("ur"), QStringLiteral("en")});
-    QCOMPARE(QLocale(QStringLiteral("ur")).textDirection(), Qt::RightToLeft);
-    QVERIFY(!KLocalizedString::isApplicationTranslatedInto(QStringLiteral("ur")));
+    KLocalizedString::setLanguages({QStringLiteral("yi"), QStringLiteral("en")});
+    QCOMPARE(QLocale(QStringLiteral("yi")).textDirection(), Qt::RightToLeft);
+    QVERIFY(!KLocalizedString::isApplicationTranslatedInto(QStringLiteral("yi")));
     QCOMPARE(CatalogLayoutDirection::effectiveLanguage(), QString());
     CatalogLayoutDirection::apply(*application);
     QCOMPARE(QGuiApplication::layoutDirection(), Qt::LeftToRight);
