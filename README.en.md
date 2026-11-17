@@ -8,7 +8,7 @@ A visual control panel for KDE Plasma: click the part of the computer you want t
 
 [![CI](https://github.com/mainuan/painel-de-controle/actions/workflows/ci.yml/badge.svg)](https://github.com/mainuan/painel-de-controle/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/mainuan/painel-de-controle)](https://github.com/mainuan/painel-de-controle/releases/latest)
-[![Licença](https://img.shields.io/github/license/mainuan/painel-de-controle)](LICENSE)
+[![License](https://img.shields.io/github/license/mainuan/painel-de-controle)](LICENSE)
 ![Platform](https://img.shields.io/badge/Kubuntu%2026.04%20%7C%20Plasma%206.6-1d99f3)
 
 [Português](README.md) · **English**
