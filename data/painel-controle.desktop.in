@@ -5,3 +5,7 @@ Exec=painel-controle
 Icon=preferences-system
 Terminal=false
 Categories=Qt;KDE;Settings;
+OnlyShowIn=KDE;
+SingleMainWindow=true
+StartupNotify=true
+X-KDE-Shortcuts=Tools,Meta+I

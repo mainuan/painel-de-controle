@@ -32,6 +32,8 @@ Recommends: bluedevil,
             plasma-workspace,
             powerdevil,
             print-manager
+Breaks: mainuan-desktop-defaults (<< 2026.11.17.1)
+Replaces: mainuan-desktop-defaults (<< 2026.11.17.1)
 Suggests: kamera,
           kde-config-tablet,
           kgamma,
