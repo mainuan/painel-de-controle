@@ -1,0 +1,37 @@
+.TH PAINEL-CONTROLE 1 "November 2026" "painel-de-controle 1.1.0" "User Commands"
+.SH NAME
+painel-controle \- skeuomorphic control panel for KDE Plasma
+.SH SYNOPSIS
+.B painel-controle
+.SH DESCRIPTION
+.B painel-controle
+shows a picture of a desktop computer and of a laptop. Clicking a part of the
+picture (mouse, keyboard, screen, speakers, network, printer, camera and so on),
+or the matching entry in the side list, opens the related KDE Plasma settings
+modules with
+.BR kcmshell6 (1).
+The Webcam entry starts
+.BR guvcview (1).
+The window is hidden while the settings window is open and comes back when it
+is closed.
+.PP
+.B Advanced Mode
+opens the complete System Settings
+.RB ( systemsettings (1)).
+.PP
+The interface follows the language of the Plasma session
+.RB ( LANGUAGE ,
+.BR LANG ).
+.SH ENVIRONMENT
+.TP
+.B PAINEL_CONTROLE_LOCALEDIR
+Additional directory with
+.I <lang>/LC_MESSAGES/painel-controle.mo
+catalogs, used to run the program from a build tree.
+.SH FILES
+.TP
+.I /usr/share/locale/*/LC_MESSAGES/painel-controle.mo
+Translations.
+.SH SEE ALSO
+.BR kcmshell6 (1),
+.BR systemsettings (1)

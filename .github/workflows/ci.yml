@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v[0-9]*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_type != 'tag' }}
+
+jobs:
+  package:
+    permissions:
+      contents: write # only the release job uses it, and only for v* tags
+    uses: mainuan/.github/.github/workflows/debian-package.yml@2409a50535befe90ac3bbfc4db6eed7d65eac4e5
+    with:
+      package: painel-de-controle
+      release-title: Painel de Controle
+      # Catalogs, POT, a build without warnings in the project's own sources
+      # (KF6 headers come in through -I and are ignored) and the i18n test in
+      # pt_BR/en/C, which must not skip. dh_auto_test runs it again.
+      test-command: |
+        po/i18n.sh check-pot
+        po/i18n.sh validate
+        src="$PWD"
+        build="$(mktemp -d)"
+        (cd "$build" && qmake6 "$src/PainelControle.pro" "QMAKE_CXXFLAGS+=-Wall -Wextra" && make -j2) 2>&1 | tee "$build/build.log"
+        if grep ': warning:' "$build/build.log" | grep -v '^/usr/'; then
+          echo "::error::compiler warnings in the project sources"; exit 1
+        fi
+        tests/run-i18n-tests.sh "$build/tests" 2>&1 | tee "$build/tests.log"
+        test "$(grep -c '^Totals: .*, 0 failed, 0 skipped' "$build/tests.log")" -eq 3
+        rm -rf "$build"
+      # Optional modules (Suggests) so that every KCM the panel opens is present;
+      # kio-extras (kcm_proxy, kcm_netpref) is a Recommends that APT skipped here.
+      extra-install-packages: kamera kde-config-tablet kgamma kio-audiocd kio-extras
+      smoke-command: |
+        cd "$HOME"
+        test -x /usr/bin/painel-controle
+        test -f /usr/share/man/man1/painel-controle.1.gz
+        grep -qx 'Exec=painel-controle' /usr/share/applications/painel-controle.desktop
+        grep -qx 'Name\[pt_BR\]=Painel de controle' /usr/share/applications/painel-controle.desktop
+        for lang in pt_BR ar de es fr ja zh_CN; do
+          test -s "/usr/share/locale/$lang/LC_MESSAGES/painel-controle.mo"
+        done
+        command -v systemsettings
+        # Every module the panel hands to kcmshell6 must exist in Plasma 6.6.
+        kcmshell6 --list > kcms.txt 2>&1 || true
+        missing=0
+        for kcm in kcm_mouse kcm_keyboard kcm_touchpad kcm_pulseaudio kcm_audiocd \
+                   kcm_clock kcm_regionandlang kcmspellchecking kcm_nighttime \
+                   kcm_networkmanagement kcm_proxy kcm_cellular_network kcm_netpref \
+                   kcm_kscreen kcm_nightlight kcm_kgamma kcm_touchscreen \
+                   kcm_wacomtablet kcm_tablet kcm_energyinfo kcm_mobile_power \
+                   kcm_printer_manager kcm_device_automounter kcm_solid_actions \
+                   kcm_bluetooth kcm_kamera; do
+          grep -q "^$kcm[[:space:]]" kcms.txt || { echo "::error::kcmshell6 does not list $kcm"; missing=1; }
+        done
+        [ "$missing" -eq 0 ] || { cat kcms.txt; exit 1; }
+        # Start the real window (offscreen). It must still be running when
+        # timeout stops it (124); any other status means it crashed or quit.
+        set +e
+        LANGUAGE=pt_BR timeout 10 painel-controle > run.log 2>&1
+        rc=$?
+        set -e
+        cat run.log
+        [ "$rc" -eq 124 ] || { echo "::error::painel-controle exited with $rc"; exit 1; }

@@ -1,2 +1,3 @@
 # Files with translatable strings, relative to the project root.
 appwindow.ui
+data/painel-controle.desktop.in

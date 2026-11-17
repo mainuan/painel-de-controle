@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+# The i18n test builds the real window; no display server in the build.
+export QT_QPA_PLATFORM = offscreen
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --buildsystem=qmake6
+
+# tests/run-i18n-tests.sh builds the application and the test out of tree and
+# runs the test with LANGUAGE=pt_BR, LANGUAGE=en and the C locale.
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	tests/run-i18n-tests.sh $(CURDIR)/debian/i18n-tests
+endif
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf debian/i18n-tests locale painel-controle.desktop
