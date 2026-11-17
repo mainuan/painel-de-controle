@@ -1,3 +1,10 @@
+painel-de-controle (1.1.2) resolute; urgency=medium
+
+  * Licença: GNU General Public License versão 2 (arquivo LICENSE e
+    debian/copyright); antes o repositório não declarava licença.
+
+ -- ruscher <rruscher@gmail.com>  Tue, 17 Nov 2026 18:11:35 -0300
+
 painel-de-controle (1.1.1) resolute; urgency=medium
 
   * O pacote passa a ser o dono do atalho do menu

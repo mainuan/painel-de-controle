@@ -8,6 +8,7 @@ Painel de controle visual para o KDE Plasma: clique na parte do computador que q
 
 [![CI](https://github.com/mainuan/painel-de-controle/actions/workflows/ci.yml/badge.svg)](https://github.com/mainuan/painel-de-controle/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/mainuan/painel-de-controle)](https://github.com/mainuan/painel-de-controle/releases/latest)
+[![Licença](https://img.shields.io/github/license/mainuan/painel-de-controle)](LICENSE)
 ![Plataforma](https://img.shields.io/badge/Kubuntu%2026.04%20%7C%20Plasma%206.6-1d99f3)
 
 **Português** · [English](README.en.md)
@@ -121,4 +122,4 @@ Relate problemas em [Issues](https://github.com/mainuan/painel-de-controle/issue
 
 ## Licença
 
-Este repositório **não tem arquivo de licença**, e os arquivos-fonte não trazem aviso de licença. Até que os autores publiquem uma, nenhuma permissão é concedida além do que a lei aplicável permite, e os direitos ficam reservados a eles (ver [`debian/copyright`](debian/copyright)).
+GNU General Public License, versão 2 (GPL-2.0). Texto completo em [`LICENSE`](LICENSE).
