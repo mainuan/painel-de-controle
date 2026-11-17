@@ -1,0 +1,26 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: painel-de-controle
+Upstream-Contact: Natanael Barbosa Santos <natanaelpix@gmail.com>
+Source: https://github.com/mainuan/painel-de-controle
+Comment: The upstream repository contains no license file and no license
+ notices in its source files; the copyright holders have not yet stated the
+ terms under which this work is distributed.
+
+Files: *
+Copyright: 2026 Natanael Barbosa Santos <natanaelpix@gmail.com>
+License: no-license-statement
+
+Files: ki18n.pri
+       cataloglayoutdirection.h
+       data/*
+       debian/*
+       docs/*
+       po/*
+       tests/*
+Copyright: 2026 ruscher <rruscher@gmail.com>
+License: no-license-statement
+
+License: no-license-statement
+ No license has been published for this work yet. Until the copyright
+ holders add one, this file grants no permission beyond what applicable law
+ allows.

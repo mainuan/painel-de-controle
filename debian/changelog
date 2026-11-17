@@ -1,0 +1,15 @@
+painel-de-controle (1.1.0) resolute; urgency=medium
+
+  * Interface traduzida com KI18n (gettext) em 33 idiomas, seguindo o idioma
+    do Plasma, com espelhamento da interface para idiomas da direita para a
+    esquerda; "Data & Hora" exibe o "&" literal.
+  * Lançador no menu de aplicativos (painel-controle.desktop, nome traduzido)
+    e página de manual painel-controle(1).
+  * Empacotamento Debian com debhelper (qmake6): arquitetura amd64 (o pacote
+    1.0 declarava "all" para um executável compilado), dependências
+    calculadas pelo dpkg-shlibdeps, kcmshell6 e System Settings como
+    dependências e módulos de configuração do Plasma recomendados.
+  * CI com o pipeline compartilhado do Mainuan: testes de i18n, lintian e
+    teste de instalação, execução, remoção e expurgo em Ubuntu 26.04 limpo.
+
+ -- ruscher <rruscher@gmail.com>  Tue, 17 Nov 2026 12:00:00 -0300

@@ -1,0 +1,46 @@
+Source: painel-de-controle
+Section: kde
+Priority: optional
+Maintainer: Natanael Barbosa Santos <natanaelpix@gmail.com>
+Uploaders: ruscher <rruscher@gmail.com>
+Build-Depends: debhelper-compat (= 13),
+               gettext,
+               libkf6i18n-dev,
+               locales-all <!nocheck>,
+               qmake6,
+               qt6-base-dev
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Homepage: https://github.com/mainuan/painel-de-controle
+Vcs-Browser: https://github.com/mainuan/painel-de-controle
+Vcs-Git: https://github.com/mainuan/painel-de-controle.git
+
+Package: painel-de-controle
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         libkf6kcmutils-bin,
+         systemsettings
+Recommends: bluedevil,
+            guvcview,
+            kinfocenter,
+            kio-extras,
+            kscreen,
+            plasma-desktop,
+            plasma-nm,
+            plasma-pa,
+            plasma-workspace,
+            powerdevil,
+            print-manager
+Suggests: kamera,
+          kde-config-tablet,
+          kgamma,
+          kio-audiocd
+Description: skeuomorphic control panel for KDE Plasma
+ Painel de Controle shows a picture of a desktop computer and of a laptop.
+ Clicking a device in the picture (mouse, keyboard, display, speakers,
+ network, printer, camera and so on) or in the side list opens the matching
+ KDE Plasma settings modules through kcmshell6. "Advanced Mode" opens the
+ complete System Settings.
+ .
+ The interface follows the language of the Plasma session.

@@ -1,0 +1,7 @@
+# Debian package build outputs.
+/debian/.debhelper/
+/debian/debhelper-build-stamp
+/debian/files
+/debian/painel-de-controle/
+/debian/painel-de-controle.substvars
+/debian/i18n-tests/
