@@ -20,6 +20,24 @@
 
 #include <clocale>
 
+class TestableAppWindow final : public AppWindow
+{
+public:
+    using AppWindow::AppWindow;
+
+    int activationCount = 0;
+    QString activatedTitle;
+    QStringList activatedKcms;
+
+protected:
+    void callKCMs(QString title, QString, QStringList kcms) override
+    {
+        ++activationCount;
+        activatedTitle = title;
+        activatedKcms = kcms;
+    }
+};
+
 class I18nTest final : public QObject
 {
     Q_OBJECT
@@ -29,6 +47,7 @@ private slots:
     void chassisDetectionRecognizesPortableTypes();
     void notebookDisplayShortcutIsAvailable();
     void sidebarUsesTraditionalSetupOrder();
+    void sidebarSupportsKeyboardActivation();
     void kcmIdentifiersAreNotTranslated();
     void rightToLeftCatalogMirrorsLayout();
 };
@@ -146,6 +165,31 @@ void I18nTest::sidebarUsesTraditionalSetupOrder()
                                     .arg(row).arg(tabIndex)));
         }
     }
+}
+
+void I18nTest::sidebarSupportsKeyboardActivation()
+{
+    TestableAppWindow window;
+    window.show();
+
+    auto *sidebar = window.findChild<QListWidget *>(QStringLiteral("sidebar"));
+    QVERIFY(sidebar);
+    QVERIFY(sidebar->count() > 0);
+
+    QListWidgetItem *item = sidebar->item(0);
+    QVERIFY(item);
+    sidebar->setCurrentItem(item);
+    sidebar->setFocus(Qt::OtherFocusReason);
+
+    // Both the main Enter key and the numeric keypad Enter must activate the
+    // selected item through QListWidget::itemActivated.
+    QTest::keyClick(sidebar, Qt::Key_Return);
+    QCOMPARE(window.activationCount, 1);
+    QCOMPARE(window.activatedTitle, item->text());
+    QCOMPARE(window.activatedKcms, item->data(42).toStringList());
+
+    QTest::keyClick(sidebar, Qt::Key_Enter);
+    QCOMPARE(window.activationCount, 2);
 }
 
 void I18nTest::kcmIdentifiersAreNotTranslated()
