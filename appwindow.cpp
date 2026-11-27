@@ -3,11 +3,12 @@
 #include <KLocalizedString>
 #include "ui_appwindow.h"
 #include <QProcess>
-#include <QStyle>
 #include <QFont>
 #include <QFrame>
 #include <QAbstractItemView>
 #include <QIcon>
+
+static QString withoutMnemonic(const QString &text);
 
 AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindow){
     ui->setupUi(this);
@@ -33,11 +34,17 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
         button->setFlat(true);
         button->setFocusPolicy(Qt::StrongFocus);
         button->setToolTip(withoutMnemonic(button->text()));
+        button->setStyleSheet(
+            "QPushButton { border: 1px solid transparent; border-radius: 7px; "
+            "color: transparent; background: transparent; padding: 0; }"
+            "QPushButton:hover, QPushButton:focus { "
+            "border: 2px solid palette(highlight); background: transparent; }"
+            "QPushButton:pressed { background: palette(alternate-base); }"
+        );
         button->setIconSize(QSize(0, 0));
     }
     ui->tabWidget->setCurrentIndex(0);
     on_tabWidget_currentChanged(0);
-    connect(ui->sidebar, &QListWidget::itemActivated, this, &AppWindow::on_sidebar_itemPressed);
 }
 
 // Button labels carry Qt mnemonics: "&&" is a literal ampersand and a single
