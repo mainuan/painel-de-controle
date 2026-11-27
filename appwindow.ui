@@ -31,11 +31,11 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="leftMargin"><number>20</number></property>
+    <property name="leftMargin"><number>12</number></property>
     <property name="topMargin"><number>18</number></property>
-    <property name="rightMargin"><number>20</number></property>
+    <property name="rightMargin"><number>12</number></property>
     <property name="bottomMargin"><number>18</number></property>
-    <property name="spacing"><number>18</number></property>
+    <property name="spacing"><number>12</number></property>
     <item>
      <widget class="QWidget" name="verticalWidget" native="true">
       <property name="sizePolicy">
