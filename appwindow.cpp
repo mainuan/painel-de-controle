@@ -7,6 +7,7 @@
 #include <QFont>
 #include <QFrame>
 #include <QAbstractItemView>
+#include <QIcon>
 
 AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindow){
     ui->setupUi(this);
@@ -37,7 +38,6 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
     ui->tabWidget->setCurrentIndex(0);
     on_tabWidget_currentChanged(0);
     connect(ui->sidebar, &QListWidget::itemActivated, this, &AppWindow::on_sidebar_itemPressed);
-    connect(ui->sidebar, &QListWidget::itemClicked, this, &AppWindow::on_sidebar_itemPressed);
 }
 
 // Button labels carry Qt mnemonics: "&&" is a literal ampersand and a single
