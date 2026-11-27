@@ -2,10 +2,12 @@
 // ui_appwindow.h is generated with "uic -tr tr2i18n": KLocalizedString first.
 #include <KLocalizedString>
 #include "ui_appwindow.h"
+#include "systeminfo.h"
 #include <QProcess>
 #include <QFont>
 #include <QFrame>
 #include <QAbstractItemView>
+#include <QTabBar>
 
 static QString withoutMnemonic(const QString &text);
 
@@ -27,6 +29,16 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
     }
     ui->heading->setFont(headingFont);
 
+    QFont infoFont = ui->deviceInfo->font();
+    if (infoFont.pointSize() > 8) {
+        infoFont.setPointSize(infoFont.pointSize() - 1);
+    }
+    ui->deviceInfo->setFont(infoFont);
+    ui->deviceInfo->setWordWrap(true);
+    ui->deviceInfo->setAlignment(Qt::AlignLeading | Qt::AlignTop);
+    ui->deviceInfo->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    ui->deviceInfo->setText(SystemInfo::collectHardwareSummary().displayText());
+
     for (QPushButton* button : ui->tabWidget->findChildren<QPushButton*>()) {
         connect(button, &QPushButton::clicked,this,&AppWindow::hotspotClick,Qt::UniqueConnection);
         button->setFlat(true);
@@ -41,8 +53,13 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
         );
         button->setIconSize(QSize(0, 0));
     }
-    ui->tabWidget->setCurrentIndex(0);
-    on_tabWidget_currentChanged(0);
+
+    // The device view is selected from SMBIOS chassis information, with a
+    // battery-presence fallback on hardware whose firmware omits that field.
+    ui->tabWidget->tabBar()->hide();
+    const int deviceIndex = SystemInfo::detectDeviceType() == SystemInfo::DeviceType::Laptop ? 1 : 0;
+    ui->tabWidget->setCurrentIndex(deviceIndex);
+    on_tabWidget_currentChanged(deviceIndex);
 }
 
 // Button labels carry Qt mnemonics: "&&" is a literal ampersand and a single
@@ -127,4 +144,3 @@ void AppWindow::on_callSystemSettings_clicked() {
 
     this->show();
 }
-

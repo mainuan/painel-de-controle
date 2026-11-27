@@ -16,10 +16,12 @@ include(ki18n.pri)
 
 SOURCES += \
     main.cpp \
-    appwindow.cpp
+    appwindow.cpp \
+    systeminfo.cpp
 
 HEADERS += \
     appwindow.h \
+    systeminfo.h \
     cataloglayoutdirection.h
 
 FORMS += \

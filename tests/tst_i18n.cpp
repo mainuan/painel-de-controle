@@ -6,12 +6,15 @@
 
 #include "appwindow.h"
 #include "cataloglayoutdirection.h"
+#include "systeminfo.h"
 
 #include <KLocalizedString>
 
 #include <QApplication>
 #include <QListWidget>
+#include <QLabel>
 #include <QPushButton>
+#include <QTabBar>
 #include <QTabWidget>
 #include <QTest>
 
@@ -23,6 +26,7 @@ class I18nTest final : public QObject
 
 private slots:
     void windowUsesExpectedLanguage();
+    void chassisDetectionRecognizesPortableTypes();
     void kcmIdentifiersAreNotTranslated();
     void rightToLeftCatalogMirrorsLayout();
 };
@@ -47,8 +51,18 @@ void I18nTest::windowUsesExpectedLanguage()
     QVERIFY(tabs);
     QCOMPARE(tabs->tabText(0), QStringLiteral("Desktop"));
     QCOMPARE(tabs->tabText(1), pt ? QStringLiteral("Notebook") : QStringLiteral("Laptop"));
+    QVERIFY(tabs->tabBar()->isHidden());
 
-    // The sidebar is built from the hotspot buttons of the current tab.
+    const int expectedTab = SystemInfo::detectDeviceType() == SystemInfo::DeviceType::Laptop ? 1 : 0;
+    QCOMPARE(tabs->currentIndex(), expectedTab);
+    auto *heading = window.findChild<QLabel *>(QStringLiteral("heading"));
+    QVERIFY(heading);
+    QCOMPARE(heading->text(), tabs->tabText(expectedTab));
+    auto *deviceInfo = window.findChild<QLabel *>(QStringLiteral("deviceInfo"));
+    QVERIFY(deviceInfo);
+    QVERIFY(!deviceInfo->text().trimmed().isEmpty());
+
+    // The sidebar is built from the hotspot buttons of the detected device.
     auto *sidebar = window.findChild<QListWidget *>(QStringLiteral("sidebar"));
     QVERIFY(sidebar);
     QStringList items;
@@ -64,6 +78,17 @@ void I18nTest::windowUsesExpectedLanguage()
                       QStringLiteral("Removable Storage"), QStringLiteral("Digital Cameras")};
     for (const QString &text : expected) {
         QVERIFY2(items.contains(text), qPrintable(text + QLatin1String(" not in: ") + items.join(QLatin1String(" | "))));
+    }
+}
+
+void I18nTest::chassisDetectionRecognizesPortableTypes()
+{
+    for (const int type : {8, 9, 10, 11, 14, 30, 31, 32}) {
+        QVERIFY2(SystemInfo::isLaptopChassisType(type), qPrintable(QString::number(type)));
+    }
+
+    for (const int type : {3, 4, 5, 6, 7, 13, 35, 36}) {
+        QVERIFY2(!SystemInfo::isLaptopChassisType(type), qPrintable(QString::number(type)));
     }
 }
 
