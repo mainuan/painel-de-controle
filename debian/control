@@ -1,4 +1,4 @@
-Source: painel-de-controle
+Source: mainuan-painel-de-controle
 Section: kde
 Priority: optional
 Maintainer: Natanael Barbosa Santos <natanaelpix@gmail.com>
@@ -15,7 +15,7 @@ Homepage: https://github.com/mainuan/painel-de-controle
 Vcs-Browser: https://github.com/mainuan/painel-de-controle
 Vcs-Git: https://github.com/mainuan/painel-de-controle.git
 
-Package: painel-de-controle
+Package: mainuan-painel-de-controle
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends},
@@ -33,16 +33,17 @@ Recommends: bluedevil,
             powerdevil,
             print-manager
 Breaks: mainuan-desktop-defaults (<< 2026.11.17.1)
-Replaces: mainuan-desktop-defaults (<< 2026.11.17.1)
+Replaces: mainuan-desktop-defaults (<< 2026.11.17.1),
+          painel-de-controle (<< 1.1.3)
+Conflicts: painel-de-controle (<< 1.1.3)
 Suggests: kamera,
           kde-config-tablet,
           kgamma,
           kio-audiocd
-Description: themed visual control panel for KDE Plasma
- Painel de Controle offers a visual way to open KDE Plasma settings for desktop computers and laptops.
- Clicking a device in the picture (mouse, keyboard, display, speakers,
- network, printer, camera and so on) or in the side list opens the matching
- KDE Plasma settings modules through kcmshell6. "Advanced Mode" opens the
- complete System Settings.
+Description: Mainuan control panel for KDE Plasma
+ Mainuan Painel de Controle automatically detects whether it is running on a
+ desktop computer or a notebook, displays the matching device map and a
+ summary of the detected hardware, and opens the related KDE Plasma settings
+ modules through kcmshell6. "Advanced Mode" opens complete System Settings.
  .
  The interface follows the language of the Plasma session.

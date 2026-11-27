@@ -1,3 +1,16 @@
+mainuan-painel-de-controle (1.1.3) resolute; urgency=medium
+
+  * Renomeia o pacote Debian para mainuan-painel-de-controle, seguindo o
+    padrão das ferramentas Mainuan, e declara a transição do pacote antigo.
+  * Detecta automaticamente notebook ou computador de mesa pelo chassi SMBIOS,
+    usando a presença de bateria como alternativa quando necessário.
+  * Exibe um resumo do equipamento (fabricante/modelo, processador, memória
+    RAM e driver gráfico) e mostra somente o mapa correspondente ao hardware.
+  * Mantém o comando painel-controle, o atalho do menu e os identificadores
+    dos módulos KDE para preservar a compatibilidade com atalhos e scripts.
+
+ -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 10:19:24 -0300
+
 painel-de-controle (1.1.2) resolute; urgency=medium
 
   * Licença: GNU General Public License versão 2 (arquivo LICENSE e

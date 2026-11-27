@@ -17,12 +17,10 @@ Painel de controle visual para o KDE Plasma: clique na parte do computador que q
 
 ---
 
-<p align="center"><img src="docs/screenshots/painel-de-controle.png" width="820" alt="Painel de Controle no Mainuan"></p>
-
 
 ## O que é
 
-O Painel de Controle mostra a imagem de um computador de mesa e de um notebook. Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
+O Painel de Controle identifica automaticamente se está em um computador de mesa ou notebook, exibe o mapa correspondente e apresenta um resumo do hardware detectado (fabricante/modelo, processador, memória RAM e driver gráfico). Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
 
 É um atalho para quem prefere achar as configurações pelo dispositivo, não pelo nome do módulo. O **Modo avançado** abre as Configurações do Sistema completas.
 
@@ -50,11 +48,11 @@ O Painel de Controle mostra a imagem de um computador de mesa e de um notebook. 
 
 ## Instalação
 
-O Painel de Controle já vem instalado na ISO do Mainuan. Para instalar manualmente, baixe `painel-de-controle_1.1.1_amd64.deb` e `SHA256SUMS` da [última release](https://github.com/mainuan/painel-de-controle/releases/latest) e, na pasta dos dois arquivos:
+O Painel de Controle já vem instalado na ISO do Mainuan. Para instalar manualmente, baixe o pacote `mainuan-painel-de-controle` e `SHA256SUMS` da [última release](https://github.com/mainuan/painel-de-controle/releases/latest) e, na pasta dos dois arquivos:
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./painel-de-controle_1.1.1_amd64.deb
+sudo apt install ./mainuan-painel-de-controle_*.deb
 ```
 
 Alguns módulos vêm de pacotes opcionais. Para ter todos: `sudo apt install kamera kde-config-tablet kgamma kio-audiocd kio-extras`.
@@ -80,7 +78,7 @@ O comando não tem opções. Página de manual: `man painel-controle`.
 | Linguagem | C++17 |
 | Toolkit | Qt 6 Widgets, KF6 KI18n; build com qmake6 |
 | Base | Kubuntu 26.04 LTS, KDE Plasma 6.6 |
-| Pacote | `painel-de-controle` (Debian, `amd64`); executável `painel-controle` |
+| Pacote | `mainuan-painel-de-controle` (Debian, `amd64`); executável `painel-controle` |
 | Dependências principais | `systemsettings`, `libkf6kcmutils-bin` (`kcmshell6`); recomenda `plasma-nm`, `plasma-pa`, `powerdevil`, `print-manager`, `bluedevil`, `kscreen`, `guvcview` e outros |
 | Arquitetura | amd64 |
 
@@ -100,7 +98,7 @@ mkdir build && cd build
 qmake6 ../PainelControle.pro "QMAKE_CXXFLAGS+=-Wall -Wextra" && make -j2
 cd .. && QT_QPA_PLATFORM=offscreen tests/run-i18n-tests.sh "$PWD/build/tests"   # pt_BR, en e C
 dpkg-buildpackage -us -uc -b
-lintian --fail-on error ../painel-de-controle_1.1.1_amd64.deb
+lintian --fail-on error ../mainuan-painel-de-controle_1.1.3_amd64.deb
 ```
 
 O CI falha com qualquer aviso de compilação no código do projeto e se o teste de tradução for pulado. Depois, instala o `.deb` num Ubuntu 26.04 limpo, confere que o `kcmshell6` lista todos os módulos que o painel abre, inicia a janela real (offscreen) e remove e expurga o pacote. A Release só é publicada por tag `v<versão>` igual à de `debian/changelog` e nunca substitui uma Release existente.

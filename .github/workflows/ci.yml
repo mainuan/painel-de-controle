@@ -20,8 +20,8 @@ jobs:
       contents: write # only the release job uses it, and only for v* tags
     uses: mainuan/.github/.github/workflows/debian-package.yml@2409a50535befe90ac3bbfc4db6eed7d65eac4e5
     with:
-      package: painel-de-controle
-      release-title: Painel de Controle
+      package: mainuan-painel-de-controle
+      release-title: Mainuan - Painel de Controle
       # Catalogs, POT, a build without warnings in the project's own sources
       # (KF6 headers come in through -I and are ignored) and the i18n test in
       # pt_BR/en/C, which must not skip. dh_auto_test runs it again.
