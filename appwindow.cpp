@@ -53,8 +53,14 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
         tabBar->hide();
     }
     const int deviceIndex = SystemInfo::detectDeviceType() == SystemInfo::DeviceType::Laptop ? 1 : 0;
-    ui->tabWidget->setCurrentIndex(deviceIndex);
-    on_tabWidget_currentChanged(deviceIndex);
+    if (ui->tabWidget->currentIndex() == deviceIndex) {
+        // setCurrentIndex() emits currentChanged only when the index changes.
+        // Initialize the default desktop page explicitly in that case.
+        on_tabWidget_currentChanged(deviceIndex);
+    } else {
+        // The connected currentChanged slot initializes the newly selected page.
+        ui->tabWidget->setCurrentIndex(deviceIndex);
+    }
 }
 
 // Button labels carry Qt mnemonics: "&&" is a literal ampersand and a single
