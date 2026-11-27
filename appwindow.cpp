@@ -20,9 +20,11 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
     ui->sidebar->setFrameShape(QFrame::NoFrame);
     ui->sidebar->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    QFont headingFont = font();
+    QFont headingFont = ui->heading->font();
     headingFont.setBold(true);
-    headingFont.setPointSizeF(headingFont.pointSizeF() + 1.0);
+    if (headingFont.pointSize() > 0) {
+        headingFont.setPointSize(headingFont.pointSize() + 1);
+    }
     ui->heading->setFont(headingFont);
 
     for (QPushButton* button : ui->tabWidget->findChildren<QPushButton*>()) {
