@@ -3,26 +3,41 @@
 #include <KLocalizedString>
 #include "ui_appwindow.h"
 #include <QProcess>
+#include <QStyle>
+#include <QFont>
+#include <QFrame>
+#include <QAbstractItemView>
 
 AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindow){
     ui->setupUi(this);
 
+    // Follow the active KDE/Qt theme instead of imposing a separate palette.
+    setMinimumSize(760, 520);
+    resize(1100, 700);
+    setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
+    ui->sidebar->setIconSize(QSize(22, 22));
+    ui->sidebar->setSpacing(2);
+    ui->sidebar->setUniformItemSizes(true);
+    ui->sidebar->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->sidebar->setFrameShape(QFrame::NoFrame);
+    ui->sidebar->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    QFont headingFont = font();
+    headingFont.setBold(true);
+    headingFont.setPointSizeF(headingFont.pointSizeF() + 1.0);
+    ui->heading->setFont(headingFont);
+
     for (QPushButton* button : ui->tabWidget->findChildren<QPushButton*>()) {
         connect(button, &QPushButton::clicked,this,&AppWindow::hotspotClick,Qt::UniqueConnection);
-        button->setStyleSheet(
-            "QPushButton{"
-            "  border: 0px;"
-            "  color: transparent;"
-            "  background-color: transparent;"
-            "}"
-            "QPushButton:hover {"
-            "  background-color: rgba(85, 170, 255, 70);"
-            "}"
-            );
-        button->setIconSize(QSize(0,0));
+        button->setFlat(true);
+        button->setFocusPolicy(Qt::StrongFocus);
+        button->setToolTip(withoutMnemonic(button->text()));
+        button->setIconSize(QSize(0, 0));
     }
     ui->tabWidget->setCurrentIndex(0);
     on_tabWidget_currentChanged(0);
+    connect(ui->sidebar, &QListWidget::itemActivated, this, &AppWindow::on_sidebar_itemPressed);
+    connect(ui->sidebar, &QListWidget::itemClicked, this, &AppWindow::on_sidebar_itemPressed);
 }
 
 // Button labels carry Qt mnemonics: "&&" is a literal ampersand and a single
@@ -84,18 +99,17 @@ void AppWindow::on_tabWidget_currentChanged(int index) {
     QWidget *tab = index == 0 ? ui->tabDesktop : ui->tabNotebook;
 
     ui->sidebar->clear();
-    for (QPushButton* button : tab->findChildren<QPushButton*>()) {
-        QListWidgetItem *item = new QListWidgetItem(button->icon(),withoutMnemonic(button->text()),ui->sidebar);
-        item->setSizeHint(QSize(48,48));
-        item->setData(KCMS,button->property("kcms").toStringList());
+    const auto buttons = tab->findChildren<QPushButton*>();
+    for (QPushButton* button : buttons) {
+        QListWidgetItem *item = new QListWidgetItem(button->icon(), withoutMnemonic(button->text()));
+        item->setSizeHint(QSize(0, 40));
+        item->setData(KCMS, button->property("kcms").toStringList());
+        item->setToolTip(withoutMnemonic(button->text()));
+        ui->sidebar->addItem(item);
     }
-    ui->sidebar->setMinimumHeight(ui->sidebar->count()*48+4);
-
-    if (ui->sidebar->minimumHeight() > 506) {
-        ui->sidebar->setMinimumHeight(506);
-    }
-
     ui->sidebar->sortItems();
+    ui->heading->setText(ui->tabWidget->tabText(index));
+    ui->sidebar->setMinimumHeight(0);
 }
 
 
