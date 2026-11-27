@@ -31,6 +31,11 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin"><number>20</number></property>
+    <property name="topMargin"><number>18</number></property>
+    <property name="rightMargin"><number>20</number></property>
+    <property name="bottomMargin"><number>18</number></property>
+    <property name="spacing"><number>18</number></property>
     <item>
      <widget class="QWidget" name="verticalWidget" native="true">
       <property name="sizePolicy">
@@ -39,7 +44,23 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size><width>190</width><height>0</height></size>
+      </property>
+      <property name="maximumSize">
+       <size><width>250</width><height>16777215</height></size>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin"><number>0</number></property>
+       <property name="topMargin"><number>0</number></property>
+       <property name="rightMargin"><number>0</number></property>
+       <property name="bottomMargin"><number>0</number></property>
+       <property name="spacing"><number>10</number></property>
+       <item>
+        <widget class="QLabel" name="sectionCaption">
+         <property name="text"><string>DEVICE SETTINGS</string></property>
+        </widget>
+       </item>
        <item>
         <widget class="QListWidget" name="sidebar">
          <property name="sizePolicy">
@@ -49,16 +70,7 @@
           </sizepolicy>
          </property>
          <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>300</width>
-           <height>16777215</height>
-          </size>
+          <size><width>0</width><height>0</height></size>
          </property>
          <property name="iconSize">
           <size>
@@ -66,6 +78,11 @@
            <height>32</height>
           </size>
          </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="heading">
+         <property name="text"><string>Desktop</string></property>
         </widget>
        </item>
        <item>
@@ -121,20 +138,15 @@
     </item>
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="documentMode"><bool>true</bool></property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-    border: 0px;
-    background-color: rgba(255,0,0, 70);
-}</string>
-      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabDesktop">
        <attribute name="title">
@@ -145,20 +157,12 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>732</width>
-          <height>554</height>
+          <width>760</width>
+          <height>600</height>
          </rect>
         </property>
-        <property name="styleSheet">
-         <string notr="true">QToolButton{
-  border: 0px;
-  color: transparent;
-  background-color: transparent;
-}
-QToolButton:hover {
-  background-color: transparent;
-}</string>
-        </property>
+        <property name="autoRaise"><bool>true</bool></property>
+        <property name="focusPolicy"><enum>Qt::NoFocus</enum></property>
         <property name="text">
          <string/>
         </property>
@@ -169,11 +173,17 @@ QToolButton:hover {
         <property name="iconSize">
          <size>
           <width>732</width>
-          <height>448</height>
+          <height>520</height>
          </size>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_26">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -196,6 +206,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_15">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>220</x>
@@ -218,6 +234,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_7">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>180</x>
@@ -241,6 +263,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_16">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>520</x>
@@ -266,6 +294,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_17">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -291,6 +325,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_8">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>260</x>
@@ -318,6 +358,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_18">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>190</x>
@@ -341,6 +387,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_19">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>500</x>
@@ -363,6 +415,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_20">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>80</x>
@@ -386,6 +444,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_21">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>90</x>
@@ -408,6 +472,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_22">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>60</x>
@@ -430,6 +500,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_23">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>347</x>
@@ -453,9 +529,6 @@ QToolButton:hover {
        </widget>
       </widget>
       <widget class="QWidget" name="tabNotebook">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
        <attribute name="title">
         <string comment="@title:tab type of computer">Laptop</string>
        </attribute>
@@ -493,6 +566,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>240</x>
@@ -520,6 +599,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_2">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>320</x>
@@ -542,6 +627,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_3">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>210</x>
@@ -565,6 +656,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_4">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>290</x>
@@ -587,6 +684,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_5">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>170</x>
@@ -610,6 +713,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_6">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>80</x>
@@ -633,6 +742,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_9">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>530</x>
@@ -658,6 +773,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_10">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>80</x>
@@ -680,6 +801,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_11">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>100</x>
@@ -702,6 +829,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_12">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>490</x>
@@ -724,6 +857,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_13">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>510</x>
@@ -749,6 +888,12 @@ QToolButton:hover {
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_14">
+        <property name="styleSheet">
+         <string notr="true">QPushButton { border: 0; color: transparent; background: transparent; padding: 0; }
+QPushButton:hover, QPushButton:focus { background: palette(highlight); color: transparent; }
+QPushButton:pressed { background: palette(highlight); }</string>
+        </property>
+
         <property name="geometry">
          <rect>
           <x>230</x>
