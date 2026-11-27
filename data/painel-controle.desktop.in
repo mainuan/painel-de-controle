@@ -5,6 +5,7 @@ Exec=painel-controle
 Icon=preferences-system
 Terminal=false
 Categories=Qt;KDE;Settings;
+Keywords=Settings;Configuration;System;Control Panel;Painel de controle;Configurações;Sistema;
 OnlyShowIn=KDE;
 SingleMainWindow=true
 StartupNotify=true

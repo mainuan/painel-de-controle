@@ -20,7 +20,7 @@ public:
 
 private slots:
     void hotspotClick();
-    void on_sidebar_itemPressed(QListWidgetItem *item);
+    void on_sidebar_itemActivated(QListWidgetItem *item);
 
     void on_tabWidget_currentChanged(int index);
 
@@ -28,7 +28,9 @@ private slots:
 
 private:
     Ui::AppWindow *ui;
-    void callKCMs(QString title, QString iconName, QStringList kcms);
+    // Virtual so the interaction test can intercept launches without starting
+    // external configuration modules; kept private in the production API.
+    virtual void callKCMs(QString title, QString iconName, QStringList kcms);
 
     const int KCMS  = 42;
 };

@@ -17,12 +17,10 @@ A visual control panel for KDE Plasma: click the part of the computer you want t
 
 ---
 
-<p align="center"><img src="docs/screenshots/painel-de-controle.png" width="820" alt="Control Panel on Mainuan"></p>
-
 
 ## About
 
-Painel de Controle ("Control Panel") shows a picture of a desktop computer and a laptop. Clicking a part of the picture (mouse, keyboard, display, speakers, network, printer, camera…) or the matching entry in the side list opens the related Plasma settings modules through `kcmshell6`. The Webcam entry starts `guvcview`. **Advanced Mode** opens the full System Settings.
+Painel de Controle ("Control Panel") detects whether it is running on a desktop computer or a notebook and displays the matching device map. The side list prioritizes Display/monitor, Microphone/speakers, Network and Internet/Wi-Fi, Keyboard, Printers and Bluetooth, in that order. Remaining settings follow alphabetically. Clicking a part of the picture (mouse, keyboard, display, speakers, network, printer, camera…) or the matching entry in the side list opens the related Plasma settings modules through `kcmshell6`. The Webcam entry starts `guvcview`. **Advanced Mode** opens the full System Settings.
 
 ## Features
 
@@ -32,11 +30,11 @@ Painel de Controle ("Control Panel") shows a picture of a desktop computer and a
 
 ## Installation
 
-Preinstalled on the Mainuan ISO. To install manually, download `painel-de-controle_1.1.1_amd64.deb` and `SHA256SUMS` from the [latest release](https://github.com/mainuan/painel-de-controle/releases/latest):
+Preinstalled on the Mainuan ISO. To install manually, download the `mainuan-painel-de-controle` package and `SHA256SUMS` from the [latest release](https://github.com/mainuan/painel-de-controle/releases/latest):
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./painel-de-controle_1.1.1_amd64.deb
+sudo apt install ./mainuan-painel-de-controle_1.1.3_amd64.deb
 ```
 
 ## Usage
@@ -50,7 +48,7 @@ Run `painel-controle` (no options) or open **Control Panel** from the menu. Manu
 | Language | C++17 |
 | Toolkit | Qt 6 Widgets, KF6 KI18n, qmake6 |
 | Base | Kubuntu 26.04 LTS, KDE Plasma 6.6 |
-| Package | `painel-de-controle` (Debian, `amd64`) |
+| Package | `mainuan-painel-de-controle` (Debian, `amd64`); executable `painel-controle` |
 
 ## Build and test
 

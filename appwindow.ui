@@ -31,6 +31,11 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin"><number>12</number></property>
+    <property name="topMargin"><number>18</number></property>
+    <property name="rightMargin"><number>12</number></property>
+    <property name="bottomMargin"><number>18</number></property>
+    <property name="spacing"><number>12</number></property>
     <item>
      <widget class="QWidget" name="verticalWidget" native="true">
       <property name="sizePolicy">
@@ -39,31 +44,38 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size><width>190</width><height>0</height></size>
+      </property>
+      <property name="maximumSize">
+       <size><width>250</width><height>16777215</height></size>
+      </property>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin"><number>0</number></property>
+       <property name="topMargin"><number>0</number></property>
+       <property name="rightMargin"><number>0</number></property>
+       <property name="bottomMargin"><number>0</number></property>
+       <property name="spacing"><number>10</number></property>
        <item>
+        <widget class="QLabel" name="heading">
+         <property name="text"><string/></property>
+        </widget>
+       </item>
+<item>
         <widget class="QListWidget" name="sidebar">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>300</width>
-           <height>16777215</height>
-          </size>
+          <size><width>0</width><height>0</height></size>
          </property>
          <property name="iconSize">
           <size>
-           <width>32</width>
-           <height>32</height>
+           <width>22</width>
+           <height>22</height>
           </size>
          </property>
         </widget>
@@ -121,20 +133,15 @@
     </item>
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="documentMode"><bool>true</bool></property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-    border: 0px;
-    background-color: rgba(255,0,0, 70);
-}</string>
-      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabDesktop">
        <attribute name="title">
@@ -150,15 +157,10 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QToolButton{
-  border: 0px;
-  color: transparent;
-  background-color: transparent;
-}
-QToolButton:hover {
-  background-color: transparent;
-}</string>
+         <string notr="true">QToolButton { border: 0; background: transparent; }</string>
         </property>
+        <property name="autoRaise"><bool>true</bool></property>
+        <property name="focusPolicy"><enum>Qt::NoFocus</enum></property>
         <property name="text">
          <string/>
         </property>
@@ -453,9 +455,6 @@ QToolButton:hover {
        </widget>
       </widget>
       <widget class="QWidget" name="tabNotebook">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
        <attribute name="title">
         <string comment="@title:tab type of computer">Laptop</string>
        </attribute>
