@@ -6,7 +6,6 @@
 #include <QFont>
 #include <QFrame>
 #include <QAbstractItemView>
-#include <QIcon>
 
 static QString withoutMnemonic(const QString &text);
 
@@ -14,9 +13,6 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
     ui->setupUi(this);
 
     // Follow the active KDE/Qt theme instead of imposing a separate palette.
-    setMinimumSize(760, 520);
-    resize(1100, 700);
-    setWindowIcon(QIcon::fromTheme(QStringLiteral("preferences-system")));
     ui->sidebar->setIconSize(QSize(22, 22));
     ui->sidebar->setSpacing(2);
     ui->sidebar->setUniformItemSizes(true);
