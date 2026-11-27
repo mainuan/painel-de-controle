@@ -51,7 +51,7 @@ jobs:
         require test -f /usr/share/man/man1/painel-controle.1.gz
         require grep -qx 'Exec=painel-controle' /usr/share/applications/painel-controle.desktop
         require grep -qx 'Keywords=Settings;Configuration;System;Control Panel;Painel de controle;Configurações;Sistema;' /usr/share/applications/painel-controle.desktop
-        require grep -qx 'Keywords[pt_BR]=Configurações;Sistema;Painel de controle;Painel de configurações;' /usr/share/applications/painel-controle.desktop
+        require grep -Fqx 'Keywords[pt_BR]=Configurações;Sistema;Painel de controle;Painel de configurações;' /usr/share/applications/painel-controle.desktop
         require grep -Fqx 'Name[pt_BR]=Painel de controle' /usr/share/applications/painel-controle.desktop
         for lang in pt_BR ar de es fr ja zh_CN; do
           require test -s "/usr/share/locale/$lang/LC_MESSAGES/painel-controle.mo"
