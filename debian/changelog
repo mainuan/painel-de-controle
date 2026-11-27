@@ -1,46 +1,27 @@
-mainuan-painel-de-controle (1.1.6) resolute; urgency=medium
-
-  * Corrige a ativação do menu lateral pelo teclado, usando itemActivated
-    para que Enter e Enter do teclado numérico abram a configuração selecionada.
-  * Adiciona palavras-chave em português e inglês ao lançador .desktop para
-    facilitar a busca do Painel de Controle no menu de aplicativos.
-  * Acrescenta teste de regressão para a ativação pelo teclado.
-
- -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 13:34:00 -0300
-
-mainuan-painel-de-controle (1.1.5) resolute; urgency=medium
-
-  * Reorganiza o menu lateral para priorizar Tela/monitor, áudio, rede e
-    Internet/Wi-Fi, teclado, impressoras e Bluetooth, nessa sequência.
-  * Mantém as demais opções depois das seis categorias prioritárias, em ordem
-    alfabética, e aplica a ordenação pelos identificadores dos módulos KDE.
-  * Acrescenta teste automatizado da sequência nos mapas de desktop e notebook.
-
- -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 11:25:00 -0300
-
-mainuan-painel-de-controle (1.1.4) resolute; urgency=medium
-
-  * Remove o resumo de hardware da área superior para liberar espaço para o
-    mapa e a lista de configurações; a detecção do tipo de equipamento segue
-    automática e em segundo plano.
-  * Mantém os pontos clicáveis acima da ilustração e destaca Tela/Display como
-    primeiro item da lista, preservando o módulo kcm_kscreen no notebook.
-  * Atualiza a versão do pacote para 1.1.4.
-
- -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 11:05:00 -0300
-
 mainuan-painel-de-controle (1.1.3) resolute; urgency=medium
 
-  * Renomeia o pacote Debian para mainuan-painel-de-controle, seguindo o
-    padrão das ferramentas Mainuan, e declara a transição do pacote antigo.
-  * Detecta automaticamente notebook ou computador de mesa pelo chassi SMBIOS,
-    usando a presença de bateria como alternativa quando necessário.
-  * Exibe um resumo do equipamento (fabricante/modelo, processador, memória
-    RAM e driver gráfico) e mostra somente o mapa correspondente ao hardware.
-  * Mantém o comando painel-controle, o atalho do menu e os identificadores
-    dos módulos KDE para preservar a compatibilidade com atalhos e scripts.
+  * Renomeia o pacote Debian para mainuan-painel-de-controle, mantendo o
+    executável painel-controle e o atalho, com Breaks/Replaces para permitir
+    a atualização do pacote painel-de-controle e do mainuan-desktop-defaults.
+  * Detecta automaticamente desktop ou notebook pelo chassi SMBIOS, com
+    alternativa baseada na presença de bateria quando o firmware não informa
+    um tipo de chassi válido; exibe somente o mapa correspondente.
+  * Integra a interface às cores do tema ativo do KDE Plasma e mantém os
+    pontos de configuração clicáveis e acessíveis pelo teclado.
+  * Organiza o menu lateral por prioridade: Tela/monitor, áudio, rede e Wi-Fi,
+    teclado, impressoras e Bluetooth; as demais opções seguem em ordem
+    alfabética, com ordenação baseada nos identificadores KCM.
+  * Corrige a ativação do menu lateral pelo teclado com itemActivated,
+    respeitando a preferência de clique do ambiente e permitindo Enter.
+  * Acrescenta Keywords em inglês e português brasileiro ao lançador .desktop
+    para facilitar a localização do Painel de Controle no menu de aplicativos.
+  * Atualiza o catálogo de tradução e os 33 arquivos PO, incluindo as palavras
+    de busca em português brasileiro, e amplia os testes de interface,
+    detecção de hardware, ordem das opções e acessibilidade pelo teclado.
+  * Atualiza o CI para validar catálogos, compilação sem avisos do projeto,
+    pacote Debian, atalhos instalados, módulos KDE e inicialização do painel.
 
- -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 10:19:24 -0300
+ -- ruscher <ruscher@gmail.com>  Fri, 27 Nov 2026 14:20:00 -0300
 
 painel-de-controle (1.1.2) resolute; urgency=medium
 
