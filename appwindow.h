@@ -26,12 +26,12 @@ private slots:
 
     void on_callSystemSettings_clicked();
 
-protected:
-    // Virtual to allow interaction tests without launching external KCM processes.
-    virtual void callKCMs(QString title, QString iconName, QStringList kcms);
-
 private:
     Ui::AppWindow *ui;
+    // Virtual so the interaction test can intercept launches without starting
+    // external configuration modules; kept private in the production API.
+    virtual void callKCMs(QString title, QString iconName, QStringList kcms);
+
     const int KCMS  = 42;
 };
 #endif // APPWINDOW_H
