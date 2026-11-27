@@ -108,7 +108,7 @@ void AppWindow::hotspotClick() {
     callKCMs(withoutMnemonic(sender->text()),sender->icon().name(),sender->property("kcms").toStringList());
 }
 
-void AppWindow::on_sidebar_itemPressed(QListWidgetItem *item) {
+void AppWindow::on_sidebar_itemActivated(QListWidgetItem *item) {
     callKCMs(item->text(),item->icon().name(),item->data(KCMS).toStringList());
 }
 
