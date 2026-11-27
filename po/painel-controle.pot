@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: painel-controle\n"
 "Report-Msgid-Bugs-To: https://github.com/mainuan/painel-de-controle/issues\n"
-"POT-Creation-Date: 2026-11-17 11:13-0300\n"
+"POT-Creation-Date: 2026-11-27 16:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,4 +85,10 @@ msgstr ""
 
 #: appwindow.ui
 msgid "Webcam"
+msgstr ""
+
+#: data/painel-controle.desktop.in:8
+msgid ""
+"Settings;Configuration;System;Control Panel;Painel de "
+"controle;Configurações;Sistema;"
 msgstr ""
