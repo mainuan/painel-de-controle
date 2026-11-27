@@ -51,7 +51,9 @@ void I18nTest::windowUsesExpectedLanguage()
     QVERIFY(tabs);
     QCOMPARE(tabs->tabText(0), QStringLiteral("Desktop"));
     QCOMPARE(tabs->tabText(1), pt ? QStringLiteral("Notebook") : QStringLiteral("Laptop"));
-    QVERIFY(tabs->tabBar()->isHidden());
+    auto *tabBar = tabs->findChild<QTabBar *>();
+    QVERIFY(tabBar);
+    QVERIFY(tabBar->isHidden());
 
     const int expectedTab = SystemInfo::detectDeviceType() == SystemInfo::DeviceType::Laptop ? 1 : 0;
     QCOMPARE(tabs->currentIndex(), expectedTab);

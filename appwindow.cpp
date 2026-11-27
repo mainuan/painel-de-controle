@@ -56,7 +56,9 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
 
     // The device view is selected from SMBIOS chassis information, with a
     // battery-presence fallback on hardware whose firmware omits that field.
-    ui->tabWidget->tabBar()->hide();
+    if (auto *tabBar = ui->tabWidget->findChild<QTabBar *>()) {
+        tabBar->hide();
+    }
     const int deviceIndex = SystemInfo::detectDeviceType() == SystemInfo::DeviceType::Laptop ? 1 : 0;
     ui->tabWidget->setCurrentIndex(deviceIndex);
     on_tabWidget_currentChanged(deviceIndex);

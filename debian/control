@@ -32,10 +32,10 @@ Recommends: bluedevil,
             plasma-workspace,
             powerdevil,
             print-manager
-Breaks: mainuan-desktop-defaults (<< 2026.11.17.1)
+Breaks: mainuan-desktop-defaults (<< 2026.11.17.1),
+        painel-de-controle (<< 1.1.3)
 Replaces: mainuan-desktop-defaults (<< 2026.11.17.1),
           painel-de-controle (<< 1.1.3)
-Conflicts: painel-de-controle (<< 1.1.3)
 Suggests: kamera,
           kde-config-tablet,
           kgamma,

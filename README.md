@@ -52,7 +52,7 @@ O Painel de Controle já vem instalado na ISO do Mainuan. Para instalar manualme
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./mainuan-painel-de-controle_*.deb
+sudo apt install ./mainuan-painel-de-controle_1.1.3_amd64.deb
 ```
 
 Alguns módulos vêm de pacotes opcionais. Para ter todos: `sudo apt install kamera kde-config-tablet kgamma kio-audiocd kio-extras`.
