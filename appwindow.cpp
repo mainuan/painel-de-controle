@@ -2,7 +2,6 @@
 // ui_appwindow.h is generated with "uic -tr tr2i18n": KLocalizedString first.
 #include <KLocalizedString>
 #include "ui_appwindow.h"
-#include "systeminfo.h"
 #include <QProcess>
 #include <QFont>
 #include <QFrame>
@@ -29,16 +28,6 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
     }
     ui->heading->setFont(headingFont);
 
-    QFont infoFont = ui->deviceInfo->font();
-    if (infoFont.pointSize() > 8) {
-        infoFont.setPointSize(infoFont.pointSize() - 1);
-    }
-    ui->deviceInfo->setFont(infoFont);
-    ui->deviceInfo->setWordWrap(true);
-    ui->deviceInfo->setAlignment(Qt::AlignLeading | Qt::AlignTop);
-    ui->deviceInfo->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    ui->deviceInfo->setText(SystemInfo::collectHardwareSummary().displayText());
-
     for (QPushButton* button : ui->tabWidget->findChildren<QPushButton*>()) {
         connect(button, &QPushButton::clicked,this,&AppWindow::hotspotClick,Qt::UniqueConnection);
         button->setFlat(true);
@@ -52,6 +41,8 @@ AppWindow::AppWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::AppWindo
             "QPushButton:pressed { background: palette(alternate-base); }"
         );
         button->setIconSize(QSize(0, 0));
+        // Keep all transparent hotspots above the device illustration.
+        button->raise();
     }
 
     // The device view is selected from SMBIOS chassis information, with a
@@ -123,15 +114,32 @@ void AppWindow::on_tabWidget_currentChanged(int index) {
     QWidget *tab = index == 0 ? ui->tabDesktop : ui->tabNotebook;
 
     ui->sidebar->clear();
+    QListWidgetItem *displayItem = nullptr;
     const auto buttons = tab->findChildren<QPushButton*>();
     for (QPushButton* button : buttons) {
         QListWidgetItem *item = new QListWidgetItem(button->icon(), withoutMnemonic(button->text()));
         item->setSizeHint(QSize(0, 40));
-        item->setData(KCMS, button->property("kcms").toStringList());
+        const QStringList kcms = button->property("kcms").toStringList();
+        item->setData(KCMS, kcms);
         item->setToolTip(withoutMnemonic(button->text()));
         ui->sidebar->addItem(item);
+
+        if (kcms.contains(QStringLiteral("kcm_kscreen"))) {
+            displayItem = item;
+        }
     }
+
     ui->sidebar->sortItems();
+
+    // Keep screen configuration immediately visible and easy to find on both
+    // desktop and notebook maps, independently of the translated label.
+    if (displayItem) {
+        const int displayRow = ui->sidebar->row(displayItem);
+        if (displayRow > 0) {
+            ui->sidebar->insertItem(0, ui->sidebar->takeItem(displayRow));
+        }
+    }
+
     ui->heading->setText(ui->tabWidget->tabText(index));
     ui->sidebar->setMinimumHeight(0);
 }

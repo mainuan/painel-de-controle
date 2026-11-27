@@ -20,7 +20,7 @@ A visual control panel for KDE Plasma: click the part of the computer you want t
 
 ## About
 
-Painel de Controle ("Control Panel") detects whether it is running on a desktop computer or a notebook, displays the matching device map and summarizes detected hardware (manufacturer/model, processor, RAM and graphics driver). Clicking a part of the picture (mouse, keyboard, display, speakers, network, printer, camera…) or the matching entry in the side list opens the related Plasma settings modules through `kcmshell6`. The Webcam entry starts `guvcview`. **Advanced Mode** opens the full System Settings.
+Painel de Controle ("Control Panel") detects whether it is running on a desktop computer or a notebook and displays the matching device map. Screen settings remain the first item in the side list as well as a clickable area on the illustration. Clicking a part of the picture (mouse, keyboard, display, speakers, network, printer, camera…) or the matching entry in the side list opens the related Plasma settings modules through `kcmshell6`. The Webcam entry starts `guvcview`. **Advanced Mode** opens the full System Settings.
 
 ## Features
 
@@ -34,7 +34,7 @@ Preinstalled on the Mainuan ISO. To install manually, download the `mainuan-pain
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./mainuan-painel-de-controle_1.1.3_amd64.deb
+sudo apt install ./mainuan-painel-de-controle_1.1.4_amd64.deb
 ```
 
 ## Usage

@@ -42,8 +42,9 @@ Suggests: kamera,
           kio-audiocd
 Description: Mainuan control panel for KDE Plasma
  Mainuan Painel de Controle automatically detects whether it is running on a
- desktop computer or a notebook, displays the matching device map and a
- summary of the detected hardware, and opens the related KDE Plasma settings
- modules through kcmshell6. "Advanced Mode" opens complete System Settings.
+ desktop computer or a notebook, displays the matching device map and opens
+ the related KDE Plasma settings modules through kcmshell6. Screen settings
+ remain available at the top of the device list. "Advanced Mode" opens the
+ complete System Settings.
  .
  The interface follows the language of the Plasma session.

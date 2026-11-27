@@ -27,6 +27,7 @@ class I18nTest final : public QObject
 private slots:
     void windowUsesExpectedLanguage();
     void chassisDetectionRecognizesPortableTypes();
+    void notebookDisplayShortcutIsAvailable();
     void kcmIdentifiersAreNotTranslated();
     void rightToLeftCatalogMirrorsLayout();
 };
@@ -60,10 +61,6 @@ void I18nTest::windowUsesExpectedLanguage()
     auto *heading = window.findChild<QLabel *>(QStringLiteral("heading"));
     QVERIFY(heading);
     QCOMPARE(heading->text(), tabs->tabText(expectedTab));
-    auto *deviceInfo = window.findChild<QLabel *>(QStringLiteral("deviceInfo"));
-    QVERIFY(deviceInfo);
-    QVERIFY(!deviceInfo->text().trimmed().isEmpty());
-
     // The sidebar is built from the hotspot buttons of the detected device.
     auto *sidebar = window.findChild<QListWidget *>(QStringLiteral("sidebar"));
     QVERIFY(sidebar);
@@ -92,6 +89,29 @@ void I18nTest::chassisDetectionRecognizesPortableTypes()
     for (const int type : {3, 4, 5, 6, 7, 13, 35, 36}) {
         QVERIFY2(!SystemInfo::isLaptopChassisType(type), qPrintable(QString::number(type)));
     }
+}
+
+void I18nTest::notebookDisplayShortcutIsAvailable()
+{
+    AppWindow window;
+    auto *tabs = window.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
+    QVERIFY(tabs);
+    tabs->setCurrentIndex(1);
+
+    auto *notebook = window.findChild<QWidget *>(QStringLiteral("tabNotebook"));
+    QVERIFY(notebook);
+    auto *displayButton = notebook->findChild<QPushButton *>(QStringLiteral("pushButton"));
+    QVERIFY(displayButton);
+    const QStringList displayKcms = displayButton->property("kcms").toStringList();
+    QVERIFY(displayKcms.contains(QStringLiteral("kcm_kscreen")));
+
+    auto *sidebar = window.findChild<QListWidget *>(QStringLiteral("sidebar"));
+    QVERIFY(sidebar);
+    QVERIFY(sidebar->count() > 0);
+
+    const bool pt = qEnvironmentVariable("PAINEL_CONTROLE_EXPECTED_LANGUAGE") == QLatin1String("pt_BR");
+    QCOMPARE(sidebar->item(0)->text(), pt ? QStringLiteral("Tela") : QStringLiteral("Display"));
+    QVERIFY(sidebar->item(0)->data(42).toStringList().contains(QStringLiteral("kcm_kscreen")));
 }
 
 void I18nTest::kcmIdentifiersAreNotTranslated()

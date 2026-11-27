@@ -20,7 +20,7 @@ Painel de controle visual para o KDE Plasma: clique na parte do computador que q
 
 ## O que é
 
-O Painel de Controle identifica automaticamente se está em um computador de mesa ou notebook, exibe o mapa correspondente e apresenta um resumo do hardware detectado (fabricante/modelo, processador, memória RAM e driver gráfico). Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
+O Painel de Controle identifica automaticamente se está em um computador de mesa ou notebook e exibe o mapa correspondente. A configuração de tela permanece no primeiro item da lista lateral, além do ponto clicável na ilustração. Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
 
 É um atalho para quem prefere achar as configurações pelo dispositivo, não pelo nome do módulo. O **Modo avançado** abre as Configurações do Sistema completas.
 
@@ -52,7 +52,7 @@ O Painel de Controle já vem instalado na ISO do Mainuan. Para instalar manualme
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./mainuan-painel-de-controle_1.1.3_amd64.deb
+sudo apt install ./mainuan-painel-de-controle_1.1.4_amd64.deb
 ```
 
 Alguns módulos vêm de pacotes opcionais. Para ter todos: `sudo apt install kamera kde-config-tablet kgamma kio-audiocd kio-extras`.

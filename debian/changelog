@@ -1,3 +1,14 @@
+mainuan-painel-de-controle (1.1.4) resolute; urgency=medium
+
+  * Remove o resumo de hardware da área superior para liberar espaço para o
+    mapa e a lista de configurações; a detecção do tipo de equipamento segue
+    automática e em segundo plano.
+  * Mantém os pontos clicáveis acima da ilustração e destaca Tela/Display como
+    primeiro item da lista, preservando o módulo kcm_kscreen no notebook.
+  * Atualiza a versão do pacote para 1.1.4.
+
+ -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 11:05:00 -0300
+
 mainuan-painel-de-controle (1.1.3) resolute; urgency=medium
 
   * Renomeia o pacote Debian para mainuan-painel-de-controle, seguindo o
