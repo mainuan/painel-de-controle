@@ -38,8 +38,8 @@ Suggests: kamera,
           kde-config-tablet,
           kgamma,
           kio-audiocd
-Description: visual control panel for KDE Plasma
- Painel de Controle provides a visual way to open KDE Plasma settings on desktop computers and laptops.
+Description: themed visual control panel for KDE Plasma
+ Painel de Controle offers a visual way to open KDE Plasma settings for desktop computers and laptops.
  Clicking a device in the picture (mouse, keyboard, display, speakers,
  network, printer, camera and so on) or in the side list opens the matching
  KDE Plasma settings modules through kcmshell6. "Advanced Mode" opens the
