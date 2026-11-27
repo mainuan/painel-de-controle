@@ -34,7 +34,7 @@ Preinstalled on the Mainuan ISO. To install manually, download the `mainuan-pain
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./mainuan-painel-de-controle_1.1.5_amd64.deb
+sudo apt install ./mainuan-painel-de-controle_1.1.3_amd64.deb
 ```
 
 ## Usage
