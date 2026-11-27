@@ -98,7 +98,7 @@ mkdir build && cd build
 qmake6 ../PainelControle.pro "QMAKE_CXXFLAGS+=-Wall -Wextra" && make -j2
 cd .. && QT_QPA_PLATFORM=offscreen tests/run-i18n-tests.sh "$PWD/build/tests"   # pt_BR, en e C
 dpkg-buildpackage -us -uc -b
-lintian --fail-on error ../mainuan-painel-de-controle_1.1.3_amd64.deb
+lintian --fail-on error ../mainuan-painel-de-controle_1.1.4_amd64.deb
 ```
 
 O CI falha com qualquer aviso de compilação no código do projeto e se o teste de tradução for pulado. Depois, instala o `.deb` num Ubuntu 26.04 limpo, confere que o `kcmshell6` lista todos os módulos que o painel abre, inicia a janela real (offscreen) e remove e expurga o pacote. A Release só é publicada por tag `v<versão>` igual à de `debian/changelog` e nunca substitui uma Release existente.

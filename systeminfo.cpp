@@ -2,6 +2,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QStringList>
 #include <QTextStream>
 
 namespace SystemInfo {
