@@ -20,16 +20,18 @@ public:
 
 private slots:
     void hotspotClick();
-    void on_sidebar_itemPressed(QListWidgetItem *item);
+    void on_sidebar_itemActivated(QListWidgetItem *item);
 
     void on_tabWidget_currentChanged(int index);
 
     void on_callSystemSettings_clicked();
 
+protected:
+    // Virtual to allow interaction tests without launching external KCM processes.
+    virtual void callKCMs(QString title, QString iconName, QStringList kcms);
+
 private:
     Ui::AppWindow *ui;
-    void callKCMs(QString title, QString iconName, QStringList kcms);
-
     const int KCMS  = 42;
 };
 #endif // APPWINDOW_H
