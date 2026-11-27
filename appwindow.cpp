@@ -8,6 +8,7 @@
 #include <QFrame>
 #include <QAbstractItemView>
 #include <QTabBar>
+#include <algorithm>
 
 static QString withoutMnemonic(const QString &text);
 
@@ -115,7 +116,6 @@ void AppWindow::on_tabWidget_currentChanged(int index) {
     QWidget *tab = index == 0 ? ui->tabDesktop : ui->tabNotebook;
 
     ui->sidebar->clear();
-    QListWidgetItem *displayItem = nullptr;
     const auto buttons = tab->findChildren<QPushButton*>();
     for (QPushButton* button : buttons) {
         QListWidgetItem *item = new QListWidgetItem(button->icon(), withoutMnemonic(button->text()));
@@ -125,20 +125,46 @@ void AppWindow::on_tabWidget_currentChanged(int index) {
         item->setToolTip(withoutMnemonic(button->text()));
         ui->sidebar->addItem(item);
 
-        if (kcms.contains(QStringLiteral("kcm_kscreen"))) {
-            displayItem = item;
-        }
     }
 
+    // Start with an alphabetical order, then stably promote the six most
+    // commonly needed setup categories. Use KCM IDs, never translated labels.
     ui->sidebar->sortItems();
 
-    // Keep screen configuration immediately visible and easy to find on both
-    // desktop and notebook maps, independently of the translated label.
-    if (displayItem) {
-        const int displayRow = ui->sidebar->row(displayItem);
-        if (displayRow > 0) {
-            ui->sidebar->insertItem(0, ui->sidebar->takeItem(displayRow));
+    const auto priority = [this](const QListWidgetItem *item) {
+        const QStringList kcms = item->data(KCMS).toStringList();
+        if (kcms.contains(QStringLiteral("kcm_kscreen"))) {
+            return 0; // Display / monitor
         }
+        if (kcms.contains(QStringLiteral("kcm_pulseaudio"))) {
+            return 1; // Microphone / speakers
+        }
+        if (kcms.contains(QStringLiteral("kcm_networkmanagement"))) {
+            return 2; // Network / Wi-Fi / Internet
+        }
+        if (kcms.contains(QStringLiteral("kcm_keyboard"))) {
+            return 3; // Keyboard
+        }
+        if (kcms.contains(QStringLiteral("kcm_printer_manager"))) {
+            return 4; // Printers
+        }
+        if (kcms.contains(QStringLiteral("kcm_bluetooth"))) {
+            return 5; // Bluetooth
+        }
+        return 6; // Other settings retain their alphabetical order.
+    };
+
+    QList<QListWidgetItem *> orderedItems;
+    orderedItems.reserve(ui->sidebar->count());
+    while (ui->sidebar->count() > 0) {
+        orderedItems.append(ui->sidebar->takeItem(0));
+    }
+    std::stable_sort(orderedItems.begin(), orderedItems.end(),
+                     [&priority](const QListWidgetItem *left, const QListWidgetItem *right) {
+        return priority(left) < priority(right);
+    });
+    for (QListWidgetItem *item : orderedItems) {
+        ui->sidebar->addItem(item);
     }
 
     ui->heading->setText(ui->tabWidget->tabText(index));

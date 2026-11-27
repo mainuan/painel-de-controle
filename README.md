@@ -20,7 +20,7 @@ Painel de controle visual para o KDE Plasma: clique na parte do computador que q
 
 ## O que é
 
-O Painel de Controle identifica automaticamente se está em um computador de mesa ou notebook e exibe o mapa correspondente. A configuração de tela permanece no primeiro item da lista lateral, além do ponto clicável na ilustração. Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
+O Painel de Controle identifica automaticamente se está em um computador de mesa ou notebook e exibe o mapa correspondente. O menu lateral prioriza Tela/monitor, Microfone/alto-falante, Rede e Internet/Wi-Fi, Teclado, Impressora e Bluetooth, nessa ordem. As demais opções aparecem depois, em ordem alfabética. Clicar numa parte da imagem (mouse, teclado, tela, alto-falantes, rede, impressora, câmera…) ou no item correspondente da lista lateral abre os módulos de configuração do Plasma ligados a ela, pelo `kcmshell6`.
 
 É um atalho para quem prefere achar as configurações pelo dispositivo, não pelo nome do módulo. O **Modo avançado** abre as Configurações do Sistema completas.
 
@@ -52,7 +52,7 @@ O Painel de Controle já vem instalado na ISO do Mainuan. Para instalar manualme
 
 ```bash
 sha256sum --check --ignore-missing SHA256SUMS
-sudo apt install ./mainuan-painel-de-controle_1.1.4_amd64.deb
+sudo apt install ./mainuan-painel-de-controle_1.1.5_amd64.deb
 ```
 
 Alguns módulos vêm de pacotes opcionais. Para ter todos: `sudo apt install kamera kde-config-tablet kgamma kio-audiocd kio-extras`.
@@ -98,7 +98,7 @@ mkdir build && cd build
 qmake6 ../PainelControle.pro "QMAKE_CXXFLAGS+=-Wall -Wextra" && make -j2
 cd .. && QT_QPA_PLATFORM=offscreen tests/run-i18n-tests.sh "$PWD/build/tests"   # pt_BR, en e C
 dpkg-buildpackage -us -uc -b
-lintian --fail-on error ../mainuan-painel-de-controle_1.1.4_amd64.deb
+lintian --fail-on error ../mainuan-painel-de-controle_1.1.5_amd64.deb
 ```
 
 O CI falha com qualquer aviso de compilação no código do projeto e se o teste de tradução for pulado. Depois, instala o `.deb` num Ubuntu 26.04 limpo, confere que o `kcmshell6` lista todos os módulos que o painel abre, inicia a janela real (offscreen) e remove e expurga o pacote. A Release só é publicada por tag `v<versão>` igual à de `debian/changelog` e nunca substitui uma Release existente.

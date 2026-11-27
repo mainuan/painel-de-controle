@@ -1,3 +1,13 @@
+mainuan-painel-de-controle (1.1.5) resolute; urgency=medium
+
+  * Reorganiza o menu lateral para priorizar Tela/monitor, áudio, rede e
+    Internet/Wi-Fi, teclado, impressoras e Bluetooth, nessa sequência.
+  * Mantém as demais opções depois das seis categorias prioritárias, em ordem
+    alfabética, e aplica a ordenação pelos identificadores dos módulos KDE.
+  * Acrescenta teste automatizado da sequência nos mapas de desktop e notebook.
+
+ -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 11:25:00 -0300
+
 mainuan-painel-de-controle (1.1.4) resolute; urgency=medium
 
   * Remove o resumo de hardware da área superior para liberar espaço para o

@@ -28,6 +28,7 @@ private slots:
     void windowUsesExpectedLanguage();
     void chassisDetectionRecognizesPortableTypes();
     void notebookDisplayShortcutIsAvailable();
+    void sidebarUsesTraditionalSetupOrder();
     void kcmIdentifiersAreNotTranslated();
     void rightToLeftCatalogMirrorsLayout();
 };
@@ -112,6 +113,39 @@ void I18nTest::notebookDisplayShortcutIsAvailable()
     const bool pt = qEnvironmentVariable("PAINEL_CONTROLE_EXPECTED_LANGUAGE") == QLatin1String("pt_BR");
     QCOMPARE(sidebar->item(0)->text(), pt ? QStringLiteral("Tela") : QStringLiteral("Display"));
     QVERIFY(sidebar->item(0)->data(42).toStringList().contains(QStringLiteral("kcm_kscreen")));
+}
+
+void I18nTest::sidebarUsesTraditionalSetupOrder()
+{
+    AppWindow window;
+    auto *tabs = window.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
+    auto *sidebar = window.findChild<QListWidget *>(QStringLiteral("sidebar"));
+    QVERIFY(tabs);
+    QVERIFY(sidebar);
+
+    const QStringList expectedKcms = {
+        QStringLiteral("kcm_kscreen"),
+        QStringLiteral("kcm_pulseaudio"),
+        QStringLiteral("kcm_networkmanagement"),
+        QStringLiteral("kcm_keyboard"),
+        QStringLiteral("kcm_printer_manager"),
+        QStringLiteral("kcm_bluetooth")
+    };
+
+    // Verify both device maps; the ordering is based on stable KCM IDs,
+    // so it must be identical in every translated session.
+    for (int tabIndex = 0; tabIndex < tabs->count(); ++tabIndex) {
+        tabs->setCurrentIndex(tabIndex);
+        QVERIFY2(sidebar->count() >= expectedKcms.size(),
+                 qPrintable(QStringLiteral("Not enough sidebar entries on tab %1").arg(tabIndex)));
+
+        for (qsizetype row = 0; row < expectedKcms.size(); ++row) {
+            const QStringList kcms = sidebar->item(static_cast<int>(row))->data(42).toStringList();
+            QVERIFY2(kcms.contains(expectedKcms.at(row)),
+                     qPrintable(QStringLiteral("Unexpected sidebar item at row %1 on tab %2")
+                                    .arg(row).arg(tabIndex)));
+        }
+    }
 }
 
 void I18nTest::kcmIdentifiersAreNotTranslated()
