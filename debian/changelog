@@ -1,3 +1,13 @@
+mainuan-painel-de-controle (1.1.6) resolute; urgency=medium
+
+  * Corrige a ativação do menu lateral pelo teclado, usando itemActivated
+    para que Enter e Enter do teclado numérico abram a configuração selecionada.
+  * Adiciona palavras-chave em português e inglês ao lançador .desktop para
+    facilitar a busca do Painel de Controle no menu de aplicativos.
+  * Acrescenta teste de regressão para a ativação pelo teclado.
+
+ -- ruscher <rruscher@gmail.com>  Fri, 27 Nov 2026 13:34:00 -0300
+
 mainuan-painel-de-controle (1.1.5) resolute; urgency=medium
 
   * Reorganiza o menu lateral para priorizar Tela/monitor, áudio, rede e
